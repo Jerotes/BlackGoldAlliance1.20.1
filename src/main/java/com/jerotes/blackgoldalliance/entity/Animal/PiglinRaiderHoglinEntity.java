@@ -362,16 +362,6 @@ public class PiglinRaiderHoglinEntity extends AnimalHoglinEntity implements Jero
 			this.calculateEntityAnimation(true);
 			return;
 		}
-		if (this.isVehicle() && this.getControllingPassenger() != null && entity != null && EntityFactionFind.isPiglin(this.getControllingPassenger()) || EntityFactionFind.getTrueFaction(this.getControllingPassenger()).equals("black_gold_alliance")) {
-			if (entity != null) {
-				this.setYRot(entity.getYRot());
-				this.yRotO = this.getYRot();
-				this.setXRot(entity.getXRot() * 0.5F);
-				this.setRot(this.getYRot(), this.getXRot());
-				this.yBodyRot = entity.getYRot();
-				this.yHeadRot = entity.getYRot();
-			}
-		}
 		super.travel(dir);
 	}
 

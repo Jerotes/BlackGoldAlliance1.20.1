@@ -4,9 +4,7 @@ import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldCavalryEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.IBlackGoldPiglin;
-import com.jerotes.blackgoldalliance.init.BGABlocks;
 import com.jerotes.blackgoldalliance.init.BGAEntityType;
-import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.jerotes.entity.Interface.*;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.*;
@@ -62,7 +60,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
@@ -370,20 +367,20 @@ public class BlackGoldWarHoglinEntity extends AnimalHoglinEntity implements Jero
 			this.calculateEntityAnimation(true);
 			return;
 		}
-		if (this.isVehicle() && this.getControllingPassenger() != null && entity != null && EntityFactionFind.isPiglin(this.getControllingPassenger()) || EntityFactionFind.getTrueFaction(this.getControllingPassenger()).equals("black_gold_alliance")) {
-			if (entity != null) {
-				this.setYRot(entity.getYRot());
-				this.yRotO = this.getYRot();
-				this.setXRot(entity.getXRot() * 0.5F);
-				this.setRot(this.getYRot(), this.getXRot());
-				this.yBodyRot = entity.getYRot();
-				this.yHeadRot = entity.getYRot();
-				float speedMultiplier = 1.5f;
-				Vec3 modifiedDir = dir.multiply(speedMultiplier, 1.0, speedMultiplier);
-				super.travel(modifiedDir);
-				return;
-			}
-		}
+//		if (this.isVehicle() && this.getControllingPassenger() != null && entity != null && EntityFactionFind.isPiglin(this.getControllingPassenger()) || EntityFactionFind.getTrueFaction(this.getControllingPassenger()).equals("black_gold_alliance")) {
+//			if (entity != null) {
+//				this.setYRot(entity.getYRot());
+//				this.yRotO = this.getYRot();
+//				this.setXRot(entity.getXRot() * 0.5F);
+//				this.setRot(this.getYRot(), this.getXRot());
+//				this.yBodyRot = entity.getYRot();
+//				this.yHeadRot = entity.getYRot();
+//				float speedMultiplier = 1.5f;
+//				Vec3 modifiedDir = dir.multiply(speedMultiplier, 1.0, speedMultiplier);
+//				super.travel(modifiedDir);
+//				return;
+//			}
+//		}
 		super.travel(dir);
 	}
 

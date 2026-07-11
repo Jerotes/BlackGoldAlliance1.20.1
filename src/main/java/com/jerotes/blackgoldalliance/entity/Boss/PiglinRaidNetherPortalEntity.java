@@ -753,7 +753,7 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
 			//boss生成
 			if (this.getBossSummonedRaidTick() == 1) {
 				if (this.level() instanceof ServerLevel serverLevel) {
-					TheBlackGoldMarshalEntity theBlackGoldMarshalEntity = BGAEntityType.THE_BLACK_GOLD_MARSHAL.get().spawn(serverLevel, this.getOnPos(), MobSpawnType.MOB_SUMMONED);
+					TheBlackGoldMarshalEntity theBlackGoldMarshalEntity = BGAEntityType.THE_BLACK_GOLD_MARSHAL.get().spawn(serverLevel, this.getOnPos().above().above(), MobSpawnType.MOB_SUMMONED);
 					if (theBlackGoldMarshalEntity != null) {
 						if (serverLevel.getBlockEntity(new BlockPos((int) this.getStartX(), (int) this.getStartY(), (int) this.getStartZ())) instanceof NetherSiphonCoreEntity netherSiphonCoreEntity) {
 							netherSiphonCoreEntity.portalUUID = theBlackGoldMarshalEntity.getUUID();

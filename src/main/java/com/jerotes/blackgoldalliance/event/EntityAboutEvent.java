@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -67,6 +68,16 @@ public class EntityAboutEvent {
 			}
 		}
 		else if (Main.getJerotesPersistentData(entity).getDouble("blackgoldalliance_piglin_omen_level") > -1) {
+			Main.getJerotesPersistentData(entity).putDouble("blackgoldalliance_piglin_omen_level", -1);
+		}
+	}
+	@SubscribeEvent
+	public static void TickAboutDeath(LivingDeathEvent event) {
+		LivingEntity entity = event.getEntity();
+		if (entity == null)
+			return;
+		if (Main.getJerotesPersistentData(entity).getDouble("blackgoldalliance_piglin_omen") > 0) {
+			Main.getJerotesPersistentData(entity).putDouble("blackgoldalliance_piglin_omen", 0);
 			Main.getJerotesPersistentData(entity).putDouble("blackgoldalliance_piglin_omen_level", -1);
 		}
 	}

@@ -566,6 +566,10 @@ public class NetherSiphonCoreEntity extends RandomizableContainerBlockEntity imp
 				if ((portal == null || force == null) && portalUUID != null && forceUUID != null) {
 					this.tickCountOther ++;
 					if (this.tickCountOther >= 100) {
+						if (force instanceof NetherSiphonCoreForceEntity netherSiphonCoreForceEntitys && netherSiphonCoreForceEntitys.isAlive()) {
+							//离场
+							netherSiphonCoreForceEntitys.hurt(netherSiphonCoreForceEntitys.damageSources().genericKill(), 10240);
+						}
 						this.alreadyRaid = false;
 						this.forceUUID = null;
 						this.portalUUID = null;

@@ -31,8 +31,8 @@ public class EffectEvent {
 							entity instanceof HoglinBase ||
 							entity instanceof Strider ||
 							entity instanceof ZombifiedPiglin)) {
-				int effectLevel = Objects.requireNonNull(entity.getEffect(BGAMobEffects.PIGLIN_DETERRENT.get())).getAmplifier() + 1;
-				float newAmount = event.getAmount() * (1 + effectLevel);
+				float effectLevel = Objects.requireNonNull(entity.getEffect(BGAMobEffects.PIGLIN_DETERRENT.get())).getAmplifier() + 2.5f;
+				float newAmount = event.getAmount() * (1 + effectLevel/2.5f);
 				event.setAmount(newAmount);
 			}
 			//攻击
@@ -40,8 +40,8 @@ public class EffectEvent {
 			if (damagesource.getEntity() instanceof LivingEntity attacker &&
 					attacker.hasEffect(BGAMobEffects.PIGLIN_DETERRENT.get()) &&
 					(EntityFactionFind.isPiglin(attacker) || attacker instanceof HoglinBase || attacker instanceof Strider || attacker instanceof ZombifiedPiglin)) {
-				int effectLevel = Objects.requireNonNull(attacker.getEffect(BGAMobEffects.PIGLIN_DETERRENT.get())).getAmplifier() + 1;
-				float newAmount = event.getAmount() / (1 + effectLevel);
+				float effectLevel = Objects.requireNonNull(attacker.getEffect(BGAMobEffects.PIGLIN_DETERRENT.get())).getAmplifier() + 1.5f;
+				float newAmount = event.getAmount() / (1 + effectLevel/1.5f);
 				event.setAmount(newAmount);
 			}
 		}

@@ -14,7 +14,8 @@
     "PiglinBruteMixin",
     "PiglinMixin",
     "StriderMixin",
-    "WitherSkeletonMixin"
+    "WitherSkeletonMixin",
+    "WorldGenRegionMixin"
   ],
   "client": [
     "CustomHeadLayerMixin",
