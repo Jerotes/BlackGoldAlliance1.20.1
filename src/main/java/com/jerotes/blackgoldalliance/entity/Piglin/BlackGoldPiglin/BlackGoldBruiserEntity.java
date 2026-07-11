@@ -5,8 +5,6 @@ import com.jerotes.blackgoldalliance.goal.BlackGoldPiglinFollowBossGoal;
 import com.jerotes.blackgoldalliance.goal.ForceNearestAttackableTargetGoal;
 import com.jerotes.blackgoldalliance.goal.PiglinFollowPortalGoal;
 import com.jerotes.blackgoldalliance.goal.SwitchTargetToAllyTargetGoal;
-import com.jerotes.blackgoldalliance.init.BGABlocks;
-import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
 import com.jerotes.blackgoldalliance.init.BGASoundEvents;
 import com.jerotes.jerotes.control.GiantLookControl;
@@ -61,10 +59,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nullable;
@@ -784,6 +782,7 @@ public class BlackGoldBruiserEntity extends BlackGoldPiglinEntity implements Eli
 						float block = blockState.getDestroySpeed(this.level(), blockPos);
 						if (block >= 5f || block < 0f) continue;
 						if (!ForgeEventFactory.onEntityDestroyBlock(this, blockPos, blockState)) continue;
+						if (!ForgeHooks.canEntityDestroy(this.level(), blockPos, this)) continue;
 						if ((blockState.is(BlockTags.REPLACEABLE_BY_TREES) || blockState.is(BlockTags.DIRT) || blockState.is(BlockTags.SCULK_REPLACEABLE) || blockState.is(BlockTags.STONE_ORE_REPLACEABLES)) && this.getRandom().nextFloat() > 0.05) {
 							bl = this.level().destroyBlock(blockPos, false, this) || bl;
 						} else {

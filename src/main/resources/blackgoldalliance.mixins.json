@@ -7,15 +7,13 @@
   "mixins": [
     "AbstractPiglinMixin",
     "HoglinMixin",
-    "LevelMixin",
     "LivingEntityMixin",
     "MobMixin",
     "MonsterMixin",
     "PiglinBruteMixin",
     "PiglinMixin",
     "StriderMixin",
-    "WitherSkeletonMixin",
-    "WorldGenRegionMixin"
+    "WitherSkeletonMixin"
   ],
   "client": [
     "CustomHeadLayerMixin",

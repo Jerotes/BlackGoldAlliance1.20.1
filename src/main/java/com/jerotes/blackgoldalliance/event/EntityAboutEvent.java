@@ -2,7 +2,10 @@ package com.jerotes.blackgoldalliance.event;
 
 import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.block.NetherSiphonCoreEntity;
-import com.jerotes.jerotes.util.EntityFactionFind;
+import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
+import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderEntity;
+import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.jerotes.util.Main;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -13,13 +16,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDestroyBlockEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = BGA.MODID)
@@ -41,9 +47,21 @@ public class EntityAboutEvent {
 			ItemStack itemstack = self.getItemBySlot(EquipmentSlot.HEAD);
 			EntityType<?> entitytype = lookingEntity.getType();
 
-			if (lookingEntity instanceof LivingEntity livingEntity && EntityFactionFind.getTrueFaction(livingEntity).equals("black_gold_alliance") && itemstack.is(Items.PIGLIN_HEAD)
+			if ((lookingEntity instanceof BlackGoldPiglinEntity || lookingEntity instanceof PiglinRaiderEntity) && itemstack.is(Items.PIGLIN_HEAD)
 			) {
 				event.modifyVisibility(0.5);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void DetroyBlock(LivingDestroyBlockEvent event) {
+		LivingEntity self = event.getEntity();
+		if (self.hasEffect(BGAMobEffects.PIGLIN_DETERRENT.get())) {
+			AABB area = new AABB(event.getPos()).inflate(10);
+			List<NetherSiphonCoreForceEntity> list = self.level().getEntitiesOfClass(NetherSiphonCoreForceEntity.class, area);
+			if (!list.isEmpty()) {
+				event.setCanceled(true);
 			}
 		}
 	}
@@ -51,7 +69,7 @@ public class EntityAboutEvent {
 
 	//计时
 	@SubscribeEvent
-	public static void Tick(LivingEvent.LivingTickEvent event) {
+	public static void Tick(LivingDestroyBlockEvent event) {
 		LivingEntity entity = event.getEntity();
 		if (entity == null || !entity.isAlive())
 			return;
