@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:black_gold_runt_helmet",
+    "blackgoldalliance:black_gold_warrior_helmet",
+    "blackgoldalliance:black_gold_mauler_helmet",
+    "blackgoldalliance:black_gold_hunter_helmet",
+    "blackgoldalliance:black_gold_cavalry_helmet",
+    "blackgoldalliance:the_black_gold_marshal_helmet",
+
+    "blackgoldalliance:oath_wither_squire_helmet"
+  ]
+}

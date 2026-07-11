@@ -1,0 +1,7 @@
+{
+  "__comment": "下界汲取核冷却抑制物品III",
+  "replace": false,
+  "values": [
+    "#forge:storage_blocks/netherite"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "cac",
+    "aba",
+    "cac"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+      }
+    ],
+    "b": [
+      {
+        "item": "minecraft:paper"
+      }
+    ],
+    "c": [
+      {
+        "tag": "forge:ingots/gold"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i"
+  }
+}

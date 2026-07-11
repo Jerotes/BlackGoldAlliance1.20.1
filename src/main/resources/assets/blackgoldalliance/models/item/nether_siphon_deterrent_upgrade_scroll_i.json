@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "blackgoldalliance:item/nether_siphon_deterrent_upgrade_scroll_i"
+  }
+}

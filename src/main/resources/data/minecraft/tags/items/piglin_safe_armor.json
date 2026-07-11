@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:black_gold_runt_helmet",
+    "blackgoldalliance:black_gold_runt_chestplate",
+    "blackgoldalliance:black_gold_runt_leggings",
+    "blackgoldalliance:black_gold_runt_boots",
+    "blackgoldalliance:black_gold_warrior_helmet",
+    "blackgoldalliance:black_gold_warrior_chestplate",
+    "blackgoldalliance:black_gold_warrior_leggings",
+    "blackgoldalliance:black_gold_warrior_boots",
+    "blackgoldalliance:black_gold_mauler_helmet",
+    "blackgoldalliance:black_gold_mauler_chestplate",
+    "blackgoldalliance:black_gold_mauler_leggings",
+    "blackgoldalliance:black_gold_mauler_boots",
+    "blackgoldalliance:black_gold_hunter_helmet",
+    "blackgoldalliance:black_gold_hunter_chestplate",
+    "blackgoldalliance:black_gold_hunter_leggings",
+    "blackgoldalliance:black_gold_hunter_boots",
+    "blackgoldalliance:black_gold_cavalry_helmet",
+    "blackgoldalliance:black_gold_cavalry_chestplate",
+    "blackgoldalliance:black_gold_cavalry_leggings",
+    "blackgoldalliance:black_gold_cavalry_boots",
+
+    "blackgoldalliance:the_black_gold_marshal_helmet",
+    "blackgoldalliance:the_black_gold_marshal_chestplate",
+    "blackgoldalliance:the_black_gold_marshal_leggings",
+    "blackgoldalliance:the_black_gold_marshal_boots"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_scutum",
+    "particle": "blackgoldalliance:item/black_gold_scutum"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/black_gold_scutum_in_hand",
+    "textures": {
+      "0": "blackgoldalliance:item/black_gold_scutum_model",
+      "particle": "blackgoldalliance:item/black_gold_scutum"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "throwing": 1
+      },
+      "model": "blackgoldalliance:item/black_gold_scutum_blocking"
+    }
+  ],
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_scutum"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_scutum"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_scutum"
+      },
+      "gui_light": "front"
+    }
+  }
+}

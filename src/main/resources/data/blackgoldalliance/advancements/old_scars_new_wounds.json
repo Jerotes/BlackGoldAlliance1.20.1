@@ -1,0 +1,29 @@
+{
+  "parent": "blackgoldalliance:stone_and_gold_yield",
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_sword"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.old_scars_new_wounds.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.old_scars_new_wounds.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "old_scars_new_wounds": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "blackgoldalliance:deterrent_intensification_tablet_craft"
+    ]
+  }
+}

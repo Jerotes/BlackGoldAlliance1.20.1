@@ -1,0 +1,76 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_chainsaw",
+    "particle": "blackgoldalliance:item/black_gold_chainsaw"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/black_gold_chainsaw_in_hand",
+    "textures": {
+      "0": "blackgoldalliance:item/black_gold_chainsaw_model_0",
+      "particle": "blackgoldalliance:item/black_gold_chainsaw"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 1
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_1"
+    },
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 2
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_2"
+    },
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 3
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_3"
+    },
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 4
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_4"
+    },
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 5
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_5"
+    },
+    {
+      "predicate": {
+        "blackgoldalliance_tick_count_6": 6
+      },
+      "model": "blackgoldalliance:item/black_gold_chainsaw_use_6"
+    }
+  ],
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_chainsaw"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_chainsaw"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_chainsaw"
+      },
+      "gui_light": "front"
+    }
+  }
+}

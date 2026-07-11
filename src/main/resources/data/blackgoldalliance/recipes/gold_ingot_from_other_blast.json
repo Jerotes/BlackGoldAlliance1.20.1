@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+    }
+  ],
+  "result": "minecraft:gold_ingot"
+}

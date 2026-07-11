@@ -1,0 +1,45 @@
+{
+  "name": "建造",
+  "icon": "jerotes:netherite_hammer",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "下界汲取器，是一种镌刻于金纹黑石板之上的神秘古代装置。它由黄金、黑石，以及最核心的“下界汲取核”共同构成。据记载，这台装置能够汲取来自下界的力量，将其中蕴藏的特殊能量转移至此，甚至能通过撕裂“裂缝”，将本属于下界的物质牵引至主世界。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:nether_siphon_core_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "下界汲取器与传说中的另一装置——\"下界反应器\"似乎同出一脉。但相比之下，汲取器的力量更加可控，结构也更为稳固持久。当给予燃料使其启动，再将另一装置“下界汲取连接站”与之绑定后，下界汲取器便能正式撕裂下界脆弱的防护，源源不断地剥离并攫取下界的物质。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_B_", "BBB" ,"_B_" ],
+          [ "B_B", "_N_" ,"B_B" ],
+          [ "GBG", "B0B" ,"GBG" ]
+        ],
+        "mapping": {
+          "B": "minecraft:blackstone",
+          "0": "minecraft:blackstone",
+          "N": "blackgoldalliance:nether_siphon_core",
+          "G": "minecraft:gold_block"
+        },
+        "symmetrical": false
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "text": "下界汲取器似乎是由远古时期与猪灵敌对的未知势力所创造。根据石板上的记录，这种猜想最显而易见的原因是，下界反应器被其创造者赋予了一道恶毒的诅咒：使其与猪灵们的灵魂深度绑定。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "因此，当下界汲取器运作时，周遭所有的猪灵与疣猪兽都会被一股刻骨铭心的力场所震慑，变得虚亏且脆弱。同时，如果下界汲取器因长时间充能而进入“挥发期”，那么哪怕是远在下界的猪灵，也能冥冥之中感知到这台“邪恶”装置的确切方位。"
+    }
+  ],
+  "sortnum": 0
+}

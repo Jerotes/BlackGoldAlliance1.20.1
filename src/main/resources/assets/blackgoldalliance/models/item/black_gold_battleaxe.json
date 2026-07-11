@@ -1,0 +1,36 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_battleaxe"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "throwing": 1
+      },
+      "model": "blackgoldalliance:item/black_gold_battleaxe_blocking"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [-45, -90, 0],
+      "translation": [0, 5.25, 1.75],
+      "scale": [2, 2, 2]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [-45, 90, 0],
+      "translation": [0, 5.25, 1.75],
+      "scale": [2, 2, 2]
+    },
+    "firstperson_righthand": {
+      "rotation": [-45, -90, 0],
+      "translation": [0, 5.25, 1.75],
+      "scale": [2, 2, 2]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-45, 90, 0],
+      "translation": [0, 5.25, 1.75],
+      "scale": [2, 2, 2]
+    }
+  }
+}

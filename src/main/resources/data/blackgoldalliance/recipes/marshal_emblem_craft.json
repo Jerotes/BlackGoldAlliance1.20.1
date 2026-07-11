@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ada",
+    "cbc",
+    "aca"
+  ],
+  "key": {
+    "a": [
+      {
+        "tag": "forge:ingots/gold"
+      }
+    ],
+    "b": [
+      {
+        "item": "forge:ingots/netherite"
+      }
+    ],
+    "c": [
+      {
+        "item": "minecraft:netherite_sword"
+      },
+      {
+        "item": "blackgoldalliance:black_gold_cutlass"
+      }
+    ],
+    "d": [
+      {
+        "item": "blackgoldalliance:deterrent_expansion_tablet"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:marshal_emblem"
+  }
+}

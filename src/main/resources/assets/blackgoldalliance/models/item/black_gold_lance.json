@@ -1,0 +1,37 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_lance",
+    "particle": "blackgoldalliance:item/black_gold_lance"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/black_gold_lance_in_hand",
+    "textures": {
+      "layer0": "blackgoldalliance:item/black_gold_lance_in_hand"
+    }
+  },
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_lance"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_lance"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_lance"
+      },
+      "gui_light": "front"
+    }
+  }
+}

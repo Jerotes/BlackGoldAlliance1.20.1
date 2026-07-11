@@ -1,0 +1,28 @@
+{
+  "name": "Usage",
+  "icon": "minecraft:coal",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "After constructing the correct structure, fuel is inserted into the base of the Nether Siphon Core, causing the Nether Siphon to ignite and begin operating—this state is known as the \"Siphoning Phase.\" During this phase, any nearby bound Nether Siphon Link Stations will also begin functioning normally."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "After a period of time in the Siphoning Phase, the Nether Siphon enters a relatively brief \"Volatile Phase.\" At this stage, the device continuously emanates a force field back into the Nether to prevent failure from prolonged operation—but this also makes it more likely to attract the attention of Nether denizens. "
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:netherite_block",
+      "title": "Netherite Block",
+      "text": "However, placing pure gold or netherite blocks at both ends of the Nether Siphon Core can delay or even prevent the onset of the Volatile Phase."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i",
+      "title": "Nether Siphon Deterrent Upgrade Scroll",
+      "text": "If a scroll inscribed with special runes is placed in the upper slot of the Nether Siphon Core, the device's power is enhanced—strengthening its deterrent effect against piglins and accelerating the rate at which Nether resources are siphoned."
+    }
+  ],
+  "sortnum": 1
+}

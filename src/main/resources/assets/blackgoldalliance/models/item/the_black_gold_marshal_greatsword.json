@@ -1,0 +1,46 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword",
+    "particle": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/the_black_gold_marshal_greatsword_in_hand",
+    "textures": {
+      "0": "blackgoldalliance:item/the_black_gold_marshal_greatsword_in_hand",
+      "particle": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "throwing": 1
+      },
+      "model": "blackgoldalliance:item/the_black_gold_marshal_greatsword_blocking"
+    }
+  ],
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    }
+  }
+}

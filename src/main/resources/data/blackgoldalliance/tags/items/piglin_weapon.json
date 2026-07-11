@@ -1,0 +1,21 @@
+{
+  "__comment": "黑金猪灵持有时进行特殊挥舞动画的武器",
+  "replace": false,
+  "values": [
+    "minecraft:netherite_sword",
+    "minecraft:netherite_axe",
+    "minecraft:golden_sword",
+    "minecraft:golden_axe",
+
+    "blackgoldalliance:black_gold_gladius",
+    "blackgoldalliance:black_gold_mace",
+    "blackgoldalliance:black_gold_cutlass",
+    "blackgoldalliance:black_gold_battleaxe",
+    "blackgoldalliance:black_gold_warhammer",
+    "blackgoldalliance:black_gold_lance",
+    "blackgoldalliance:black_gold_pike",
+    "blackgoldalliance:black_gold_scutum",
+    "blackgoldalliance:black_gold_chainsaw",
+    "blackgoldalliance:the_black_gold_marshal_greatsword"
+  ]
+}

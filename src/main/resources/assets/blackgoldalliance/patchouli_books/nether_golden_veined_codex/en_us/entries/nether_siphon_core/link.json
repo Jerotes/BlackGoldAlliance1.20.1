@@ -1,0 +1,28 @@
+{
+  "name": "Link",
+  "icon": "blackgoldalliance:nether_siphon_link_station",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Golden-Veined Blackstone Tablet contains the magic of the Nether. Holding it and using it on the Nether Siphon Core and the Nether Siphon Link Station respectively will connect the two."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:nether_siphon_link_station_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "If the binding is successful, holding the Golden-Veined Blackstone Tablet will reveal a beam of light indicating the connection. When the Nether Siphon is operating, the connected Nether Siphon Link Station will begin to function."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "While active, the Nether Siphon Link Station will periodically extract a fragment of Nether matter, scattering it nearby. If a container is placed beneath the station, the produced materials will be automatically collected into it."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "However, it should be noted that the efficiency of Nether Siphon Link Stations decreases as the number of nearby stations increases, so it is advisable not to place too many of them together."
+    }
+  ],
+  "sortnum": 2
+}

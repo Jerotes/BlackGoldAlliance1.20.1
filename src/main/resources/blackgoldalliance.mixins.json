@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.jerotes.blackgoldalliance.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "blackgoldalliance.refmap.json",
+  "mixins": [
+    "AbstractPiglinMixin",
+    "HoglinMixin",
+    "LevelMixin",
+    "LivingEntityMixin",
+    "MobMixin",
+    "MonsterMixin",
+    "PiglinBruteMixin",
+    "PiglinMixin",
+    "StriderMixin",
+    "WitherSkeletonMixin"
+  ],
+  "client": [
+    "CustomHeadLayerMixin",
+    "HoglinRendererMixin",
+    "HumanoidArmorLayerMixin",
+    "LivingEntityRendererMixin",
+    "PiglinRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

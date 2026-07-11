@@ -1,0 +1,368 @@
+{
+  "nether_siphon_core_start": {
+    "subtitle": "subtitle.blackgoldalliance.nether_siphon_core_start",
+    "category": "blocks",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:blocks/nether_siphon_core/start",
+        "volume": 1.0
+      }
+    ]
+  },
+  "nether_siphon_core_stop": {
+    "subtitle": "subtitle.blackgoldalliance.nether_siphon_core_stop",
+    "category": "blocks",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:blocks/nether_siphon_core/stop",
+        "volume": 1.0
+      }
+    ]
+  },
+
+  "black_gold_bruiser_attack_1": {
+    "subtitle": "subtitle.blackgoldalliance.black_gold_bruiser_attack_1",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/black_gold_bruiser/attack_1",
+        "volume": 1.0
+      }
+    ]
+  },
+  "black_gold_bruiser_attack_2": {
+    "subtitle": "subtitle.blackgoldalliance.black_gold_bruiser_attack_2",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/black_gold_bruiser/attack_2",
+        "volume": 1.0
+      }
+    ]
+  },
+  "black_gold_bruiser_walk": {
+    "subtitle": "subtitle.blackgoldalliance.black_gold_bruiser_walk",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/black_gold_bruiser/walk",
+        "volume": 1.0
+      }
+    ]
+  },
+  "black_gold_bruiser_stomp": {
+    "subtitle": "subtitle.blackgoldalliance.black_gold_bruiser_stomp",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/black_gold_bruiser/stomp",
+        "volume": 1.0
+      }
+    ]
+  },
+  "black_gold_bruiser_rush": {
+    "subtitle": "subtitle.blackgoldalliance.black_gold_bruiser_rush",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/black_gold_bruiser/rush",
+        "volume": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_voice": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_voice",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_4",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_5",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_walk": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_walk",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_4",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_5",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_6",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_7",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/walk_8",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_hurt": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_hurt",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_4",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_5",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_death": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_death",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_1",
+        "volume": 0.75,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_2",
+        "volume": 0.75,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_3",
+        "volume": 0.75,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_4",
+        "volume": 0.75,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hurt_5",
+        "volume": 0.75,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_swing": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_swing",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/swing_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/swing_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/swing_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_hit": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_hit",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_block": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_block",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_shoot": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_shoot",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_summon": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_summon",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jerotes:others/magic/summon",
+        "volume": 1.0
+      }
+    ]
+  },
+  "the_black_gold_marshal_blocking": {
+    "subtitle": "subtitle.blackgoldalliance.the_black_gold_marshal_blocking",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "blackgoldalliance:entities/the_black_gold_marshal/hit_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+
+  "magic_conjure_shamanic_zombie_pigman": {
+    "subtitle": "subtitle.blackgoldalliance.magic_conjure_shamanic_zombie_pigman",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "blackgoldalliance:others/magic/zombie_pigman",
+        "volume": 1.0
+      }
+    ]
+  },
+  "magic_warped_breath": {
+    "subtitle": "subtitle.blackgoldalliance.magic_warped_breath",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jerotes:others/magic/breath",
+        "volume": 1.0
+      }
+    ]
+  },
+  "magic_ray_of_warped": {
+    "subtitle": "subtitle.blackgoldalliance.magic_ray_of_warped",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jerotes:others/magic/ray",
+        "volume": 1.0
+      }
+    ]
+  },
+  "magic_warped_bomb": {
+    "subtitle": "subtitle.blackgoldalliance.magic_warped_bomb",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jerotes:others/magic/fire",
+        "volume": 1.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "parent": "blackgoldalliance:blackgoldalliance",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:nether_siphon_core"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.stone_and_gold_yield.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.stone_and_gold_yield.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stone_and_gold_yield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_siphon_core"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "blackgoldalliance:nether_siphon_link_station_craft",
+      "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i_craft",
+      "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_ii_craft",
+      "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_iii_craft",
+      "blackgoldalliance:deterrent_expansion_tablet_craft"
+    ]
+  }
+}

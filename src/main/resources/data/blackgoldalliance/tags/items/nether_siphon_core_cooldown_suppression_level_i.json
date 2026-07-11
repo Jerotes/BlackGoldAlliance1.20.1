@@ -1,0 +1,7 @@
+{
+  "__comment": "下界汲取核冷却抑制物品I",
+  "replace": false,
+  "values": [
+    "#forge:ingots/gold"
+  ]
+}

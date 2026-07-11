@@ -1,0 +1,24 @@
+{
+  "name": "使用",
+  "icon": "minecraft:coal",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "当搭建出正确的结构后，向下界汲取核底部填入燃料，下界汲取器便会因燃烧而开始运作，此时装置进入“汲取期”。在汲取期内，附近绑定的下界汲取连接站也会开始正常工作。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:netherite_block",
+      "title": "下界合金块",
+      "text": "进入汲取期一段时间后，下界汲取器会进入相对短暂的“挥发期”。此时，下界汲取器会持续将力场散发回下界，以避免因长时间工作而失效，但也因此更容易吸引下界存在的注意。当然，可以在下界汲取核两端放入纯粹的黄金或下界合金，以延缓或阻止挥发期的到来。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i",
+      "title": "下界汲取器威慑升级卷轴",
+      "text": "若将刻有特殊符文的卷轴安置于下界汲取核偏上方的槽位内，下界汲取器的力量将得到提升，从而增强对猪灵们的威慑力，并加快汲取下界资源的速度。"
+    }
+  ],
+  "sortnum": 1
+}

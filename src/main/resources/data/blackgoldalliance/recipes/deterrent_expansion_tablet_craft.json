@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "cbc",
+    "ada",
+    "cbc"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+      }
+    ],
+    "b": [
+      {
+        "item": "minecraft:black_stone"
+      }
+    ],
+    "c": [
+      {
+        "item": "minecraft:soul_sand"
+      },
+      {
+        "item": "minecraft:soul_soil"
+      }
+    ],
+    "d": [
+      {
+        "tag": "forge:storage_blocks/gold"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:deterrent_expansion_tablet"
+  }
+}

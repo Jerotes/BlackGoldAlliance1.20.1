@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+      }
+    ],
+    "b": [
+      {
+        "item": "minecraft:book"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:nether_golden_veined_codex"
+  }
+}

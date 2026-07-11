@@ -1,0 +1,45 @@
+{
+  "name": "Build",
+  "icon": "jerotes:netherite_hammer",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Nether Siphon is a mysterious ancient device inscribed upon the Golden-Veined Blackstone Tablet. It is constructed from gold, blackstone, and the core component, the \"Nether Siphon Core.\" According to records, this device can draw power from the Nether, transferring its special energy, and even tear open \"rifts\" to pull matter belonging to the Nether into the Overworld."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:nether_siphon_core_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Nether Siphon seems to be of the same origin as another legendary device—the \"Nether Reactor.\" However, in comparison, the Siphon's power is more controllable, and its structure is more stable and durable. When fueled and activated, and after binding another device, the \"Nether Siphon Link Station,\" to it, the Nether Siphon can formally tear through the fragile defenses of the Nether, continuously stripping and seizing Nether matter."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_B_", "BBB" ,"_B_" ],
+          [ "B_B", "_N_" ,"B_B" ],
+          [ "GBG", "B0B" ,"GBG" ]
+        ],
+        "mapping": {
+          "B": "minecraft:blackstone",
+          "0": "minecraft:blackstone",
+          "N": "blackgoldalliance:nether_siphon_core",
+          "G": "minecraft:gold_block"
+        },
+        "symmetrical": false
+      }
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Nether Siphon appears to have been created by an unknown force hostile to the piglins in ancient times. According to the records on the tablet, the most obvious reason for this speculation is that the Nether Reactor was imbued with a malicious curse by its creators: binding it deeply with the souls of piglins."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Therefore, when the Nether Siphon operates, all nearby piglins and hoglins are intimidated by a profound force field, becoming weak and fragile. At the same time, if the Nether Siphon enters a \"volatile phase\" due to prolonged charging, even piglins far away in the Nether can mysteriously sense the exact location of this \"evil\" device."
+    }
+  ],
+  "sortnum": 0
+}

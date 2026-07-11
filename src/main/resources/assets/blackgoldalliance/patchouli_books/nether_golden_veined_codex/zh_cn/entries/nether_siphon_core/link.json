@@ -1,0 +1,24 @@
+{
+  "name": "连接",
+  "icon": "blackgoldalliance:nether_siphon_link_station",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "金纹黑石板蕴藏着下界的魔力，手持它分别对下界汲取核心与下界汲取连接站使用，便可将二者进行连接。若绑定成功，手持金纹黑石板即可看见连接的光束。当下界汲取器运行时，被连接的下界汲取连接站便会开始工作。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:nether_siphon_link_station_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "工作中的下界汲取连接站每隔一段时间便会汲取出一块来自下界的物质碎片，并散落在周围。若在其下方安置容器，则产出的物资会被自动收入容器中。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "但需注意，下界汲取连接站的效率会随着周围同类装置数量的增多而降低，因此不宜摆放过多。"
+    }
+  ],
+  "sortnum": 2
+}

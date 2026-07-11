@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:piglin_raider_hoglin",
+    "blackgoldalliance:black_gold_war_hoglin",
+    "blackgoldalliance:black_gold_stepper",
+    "blackgoldalliance:black_gold_stepper_squad",
+    "blackgoldalliance:oath_construct_spider"
+  ]
+}

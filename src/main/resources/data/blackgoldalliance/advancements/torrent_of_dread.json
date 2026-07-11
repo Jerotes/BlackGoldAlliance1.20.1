@@ -1,0 +1,68 @@
+{
+  "parent": "blackgoldalliance:stone_and_gold_yield",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.torrent_of_dread.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.torrent_of_dread.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "nether_siphon_deterrent_upgrade_scroll_i": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_i"
+            ]
+          }
+        ]
+      }
+    },
+    "nether_siphon_deterrent_upgrade_scroll_ii": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_ii"
+            ]
+          }
+        ]
+      }
+    },
+    "nether_siphon_deterrent_upgrade_scroll_iii": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_siphon_deterrent_upgrade_scroll_iii"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nether_siphon_deterrent_upgrade_scroll_i",
+      "nether_siphon_deterrent_upgrade_scroll_ii",
+      "nether_siphon_deterrent_upgrade_scroll_iii"
+    ]
+  ],
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "parent": "jerotes:a_brand_new_world",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.blackgoldalliance.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.blackgoldalliance.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "blackgoldalliance": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:golden_veined_blackstone_tablet"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "blackgoldalliance:gold_ingot_from_other_blast",
+      "blackgoldalliance:gold_ingot_from_other_smelt",
+      "blackgoldalliance:nether_golden_veined_codex_craft",
+      "blackgoldalliance:nether_siphon_core_craft"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:piglin_raid_nether_portal",
+    "blackgoldalliance:nether_siphon_core_force",
+    "blackgoldalliance:the_black_gold_marshal",
+
+    "#blackgoldalliance:oath_wither_skeleton",
+    "blackgoldalliance:shamanic_zombie_pigman"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "blackgoldalliance:item/black_gold_cog_crossbow",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_cog_crossbow_pulling_0"
+  }
+}

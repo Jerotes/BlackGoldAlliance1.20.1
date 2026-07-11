@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:black_gold_runt_chestplate",
+    "blackgoldalliance:black_gold_warrior_chestplate",
+    "blackgoldalliance:black_gold_mauler_chestplate",
+    "blackgoldalliance:black_gold_hunter_chestplate",
+    "blackgoldalliance:black_gold_cavalry_chestplate",
+    "blackgoldalliance:the_black_gold_marshal_chestplate",
+
+    "blackgoldalliance:oath_wither_squire_chestplate"
+
+  ]
+}

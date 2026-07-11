@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_gladius"
+  }
+}

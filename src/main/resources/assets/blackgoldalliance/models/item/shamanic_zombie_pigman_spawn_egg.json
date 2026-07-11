@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "blackgoldalliance:item/shamanic_zombie_pigman_spawn_egg"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "blackgoldalliance:piglin_raider",
+    "blackgoldalliance:piglin_raider_warrior",
+    "blackgoldalliance:piglin_raider_hunter",
+    "blackgoldalliance:piglin_raider_brute",
+
+    "blackgoldalliance:black_gold_piglin",
+    "blackgoldalliance:black_gold_runt",
+    "blackgoldalliance:black_gold_recruit",
+    "blackgoldalliance:black_gold_thumper",
+    "blackgoldalliance:black_gold_warrior",
+    "blackgoldalliance:black_gold_hunter",
+    "blackgoldalliance:black_gold_cavalry",
+    "blackgoldalliance:black_gold_mauler",
+    "blackgoldalliance:black_gold_butcher",
+    "blackgoldalliance:black_gold_shaman",
+    "blackgoldalliance:black_gold_bruiser"
+  ]
+}

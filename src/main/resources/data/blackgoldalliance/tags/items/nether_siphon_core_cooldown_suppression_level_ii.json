@@ -1,0 +1,8 @@
+{
+  "__comment": "下界汲取核冷却抑制物品II",
+  "replace": false,
+  "values": [
+    "#forge:ingots/netherite",
+    "#forge:storage_blocks/gold"
+  ]
+}

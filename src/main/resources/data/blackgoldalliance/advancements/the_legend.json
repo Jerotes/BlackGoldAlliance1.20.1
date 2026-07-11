@@ -1,0 +1,37 @@
+{
+  "parent": "blackgoldalliance:blackgoldalliance",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:nether_golden_veined_codex"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.the_legend.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.the_legend.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "the_legend": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_golden_veined_codex"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}

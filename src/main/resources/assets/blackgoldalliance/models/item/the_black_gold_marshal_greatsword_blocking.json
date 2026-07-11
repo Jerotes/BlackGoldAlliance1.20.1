@@ -1,0 +1,59 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword",
+    "particle": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/the_black_gold_marshal_greatsword_in_hand",
+    "textures": {
+      "0": "blackgoldalliance:item/the_black_gold_marshal_greatsword_in_hand",
+      "particle": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+    },
+    "gui_light": "front",
+    "display": {
+      "thirdperson_righthand": {
+        "translation": [0, 10.25, 1.25],
+        "scale": [1.0, 1.0, 1.0]
+      },
+      "thirdperson_lefthand": {
+        "translation": [0, 10.25, 1.25],
+        "scale": [1.0, 1.0, 1.0]
+      },
+      "firstperson_righthand": {
+        "rotation": [-41, 42, 32],
+        "translation": [-3.25, 10.25, 1.25],
+        "scale": [0.75, 0.75, 0.75]
+      },
+      "firstperson_lefthand": {
+        "rotation": [-41, 42, 32],
+        "translation": [-3.25, 10.25, 1.25],
+        "scale": [0.75, 0.75, 0.75]
+      }
+    }
+  },
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/the_black_gold_marshal_greatsword"
+      },
+      "gui_light": "front"
+    }
+  }
+}

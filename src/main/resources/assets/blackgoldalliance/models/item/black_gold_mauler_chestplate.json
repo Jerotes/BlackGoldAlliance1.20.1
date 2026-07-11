@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_mauler_chestplate"
+  }
+}

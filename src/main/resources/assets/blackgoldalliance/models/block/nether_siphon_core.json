@@ -1,0 +1,8 @@
+{
+	"parent": "blackgoldalliance:block/base_nether_siphon_core",
+	"textures": {
+		"0": "blackgoldalliance:block/nether_siphon_core",
+		"particle": "blackgoldalliance:block/nether_siphon_core_particle"
+	},
+	"render_type": "cutout"
+}

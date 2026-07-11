@@ -1,0 +1,33 @@
+{
+  "name": "袭击",
+  "icon": "minecraft:golden_sword",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "当激活的下界汲取器进入挥发期后，吸引下界猪灵的注意几乎是必然的。一旦猪灵锁定下界汲取器并决定发动袭击，装置会将它们的信息汇报给附近的使用者，并将袭击目标绑定至距离最近的使用者身上。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:deterrent_expansion_tablet_craft"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:deterrent_intensification_tablet_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "理论上，只要在挥发期结束的一刻后远离下界汲取器，猪灵便难以最终锁定其位置。但是，如果被锁定的使用者持续停留在汲取器附近，一场针对主世界的袭击便会展开。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "blackgoldalliance:piglin_raid_nether_portal",
+      "text": "守护好你的装置"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "此时，下界汲取器会散发出一层防护力场——在力场被摧毁前，汲取器坚不可摧。使用者必须维持力场存在，从而持续威慑猪灵，并强行维持下界汲取核的运转。因为一旦进入挥发期而失去防护力场，下界汲取核将被猪灵轻松摧毁。"
+    }
+  ],
+  "sortnum": 3
+}

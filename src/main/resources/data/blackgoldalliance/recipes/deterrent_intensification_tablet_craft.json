@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "cbc",
+    "ada",
+    "cbc"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+      }
+    ],
+    "b": [
+      {
+        "tag": "forge:gems/diamond"
+      }
+    ],
+    "c": [
+      {
+        "tag": "forge:ingots/netherite"
+      }
+    ],
+    "d": [
+      {
+        "item": "blackgoldalliance:deterrent_expansion_tablet"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:deterrent_intensification_tablet"
+  }
+}

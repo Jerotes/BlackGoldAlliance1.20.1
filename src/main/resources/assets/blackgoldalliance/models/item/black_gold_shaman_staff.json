@@ -1,0 +1,38 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "blackgoldalliance:item/black_gold_shaman_staff",
+    "particle": "blackgoldalliance:item/black_gold_shaman_staff"
+  },
+  "base": {
+    "parent": "blackgoldalliance:item/black_gold_shaman_staff_in_hand",
+    "textures": {
+      "0": "blackgoldalliance:item/black_gold_shaman_staff_model",
+      "particle": "blackgoldalliance:item/black_gold_shaman_staff"
+    }
+  },
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_shaman_staff"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_shaman_staff"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackgoldalliance:item/black_gold_shaman_staff"
+      },
+      "gui_light": "front"
+    }
+  }
+}

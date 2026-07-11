@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aba",
+    "bcb",
+    "aba"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "blackgoldalliance:golden_veined_blackstone_tablet"
+      }
+    ],
+    "b": [
+      {
+        "item": "minecraft:netherrack"
+      }
+    ],
+    "c": [
+      {
+        "tag": "forge:storage_blocks/gold"
+      }
+    ]
+  },
+  "result": {
+    "item": "blackgoldalliance:nether_siphon_core"
+  }
+}

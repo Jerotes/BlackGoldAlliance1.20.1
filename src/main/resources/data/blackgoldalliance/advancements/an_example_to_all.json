@@ -1,0 +1,28 @@
+{
+  "parent": "blackgoldalliance:old_scars_new_wounds",
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_chestplate"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.an_example_to_all.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.an_example_to_all.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "an_example_to_all": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}

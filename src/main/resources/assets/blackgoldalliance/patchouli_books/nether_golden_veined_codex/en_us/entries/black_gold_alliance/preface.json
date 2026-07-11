@@ -1,0 +1,55 @@
+{
+  "name": "Preface",
+  "icon": "minecraft:writable_book",
+  "category": "blackgoldalliance:black_gold_alliance",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Black Gold Alliance, also known as the \"Horde of the Demonic\", is perhaps the most independent and structurally well-defined faction among the Piglins. Its origins appear to trace back to the legendary age, and it has always maintained a transcendent status—never submitting to the commands of any Piglin ruler, surviving solely through its own unique system."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Unlike other Piglin tribes, the Black Gold Alliance enforces strict internal order, adhering to a rigorous military merit-based promotion system. From an external perspective, it is difficult to observe the kind of survival-of-the-fittest behavior common among ordinary Piglins within the Alliance; indeed, one cannot even find any trace of savage infighting."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Their only internal disputes seem to arise from competition for military merits and discipline, much like how it is nearly impossible for them to allow situations where the strong bully the weak to death—even elite warriors maintain considerable restraint toward ordinary Runts—though their attitude toward Piglins of other tribes may not be so restrained."
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["blackgoldalliance:textures/gui/entries/black_gold_alliance.png"],
+      "border": true,
+      "text": "Black Gold Alliance"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Today, most Piglins remain unaware of the existence of the Black Gold Alliance. Those who have merely heard of it often refer to the Black Gold Alliance as Demonic, which is how the term \"Horde of the Demonic\" came to be. The Black Gold Alliance holds the revival of Piglin civilization as its creed, thus viewing itself as the savior and restorer of its kind. When dealing with other Piglins, they carry a deep, almost aristocratic sense of superiority. "
+    },
+    {
+      "type": "patchouli:text",
+      "text": "In their eyes, contemporary Piglins are nothing but savages who contribute nothing to this revival: weak, greedy, cunning, and unreasonable—like a crowd of clowns who cannot even perform their buffoonery properly."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "It is worth mentioning that the Black Gold Piglins do not, as some rumors suggest, hunt and slaughter other Piglins or Overworld creatures in batches merely for sport. In truth, their interactions with the outside world are extremely limited, and they disdain such dishonorable acts. In their own eyes, they are military aristocrats of a higher class, unwilling to waste their energy on the commonfolk, who are unworthy of their attention."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "blackgoldalliance:black_gold_piglin",
+      "text": "Black Gold Alliance - Piglin"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "As for the disdain the Black Gold Piglins hold for other Piglins, its roots can be traced to their innate factional alignment: they are naturally more lawful than ordinary Piglins. In their view, the mentality and intellect of other Piglins are nothing more than a tangle of historical memories defined by infighting, greed, betrayal, and absurdity."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Most Black Gold Piglins regard other Piglins as kin who will one day need their guidance and purification—while some of the more extreme among them refuse to even acknowledge ordinary Piglins as their own kind."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "It is hard to say whether they are pure traditionalists. They show little enthusiasm for delving into the ancient technology and culture of the Piglins, yet they fervently desire the entire race to return to an imagined, \"most glorious\" past."
+    }
+  ],
+  "sortnum": 10
+}

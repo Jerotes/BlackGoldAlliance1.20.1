@@ -1,0 +1,33 @@
+{
+  "name": "Raid",
+  "icon": "minecraft:golden_sword",
+  "category": "blackgoldalliance:nether_siphon_core",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Once an activated Nether Siphon enters the Volatile Phase, attracting the attention of piglins from the Nether is nearly inevitable. When piglins lock onto the Nether Siphon and decide to launch an attack, the device relays their information to nearby users and binds the raid target to the nearest user among them."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:deterrent_expansion_tablet_craft"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "blackgoldalliance:deterrent_intensification_tablet_craft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Theoretically, if one stays far away from the Nether Siphon immediately after the Volatile Phase ends, the piglins will have difficulty pinpointing its location. However, if the targeted user continues to linger near the device, a raid against the Overworld will commence."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "blackgoldalliance:piglin_raid_nether_portal",
+      "text": "Protect your device"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "At this point, the Nether Siphon generates a protective force field—while the field remains intact, the Siphon is indestructible. The user must sustain the force field, thereby continuously deterring the piglins and forcibly keeping the Nether Siphon Core operational. Should the device enter the Volatile Phase without this protective field, the Nether Siphon Core would be easily destroyed by the piglins."
+    }
+  ],
+  "sortnum": 3
+}

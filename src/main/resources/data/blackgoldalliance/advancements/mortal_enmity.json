@@ -1,0 +1,29 @@
+{
+  "parent": "blackgoldalliance:stormclouds_gather",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:black_gold_warrior_chestplate"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.mortal_enmity.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.mortal_enmity.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "mortal_enmity": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "blackgoldalliance:dmarshal_emblem_craft"
+    ]
+  }
+}

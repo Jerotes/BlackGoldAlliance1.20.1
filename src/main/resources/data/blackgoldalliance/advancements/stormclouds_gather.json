@@ -1,0 +1,28 @@
+{
+  "parent": "blackgoldalliance:stone_and_gold_yield",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:black_gold_cutlass"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.stormclouds_gather.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.stormclouds_gather.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stormclouds_gather": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}

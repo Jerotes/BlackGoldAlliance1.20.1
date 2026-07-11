@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "blackgoldalliance:item/oath_wither_squire_leggings"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "blackgoldalliance:stone_and_gold_yield",
+  "display": {
+    "icon": {
+      "item": "blackgoldalliance:nether_siphon_link_station"
+    },
+    "title": {
+      "translate": "advancements.blackgoldalliance.chasm_bridged.title"
+    },
+    "description": {
+      "translate": "advancements.blackgoldalliance.chasm_bridged.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "chasm_bridged": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackgoldalliance:nether_siphon_link_station"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}
