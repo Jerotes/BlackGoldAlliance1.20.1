@@ -264,7 +264,9 @@ public class AnimalHoglinEntity extends Animal implements HoglinBase, JerotesEnt
 		this.timeInOverworld = compoundTag.getInt("TimeInOverworld");
 		this.setCannotBeHunted(compoundTag.getBoolean("CannotBeHunted"));
 		this.setEntityNeedDiscardTick(compoundTag.getInt("EntityNeedDiscardTick"));
-		this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		if (compoundTag.hasUUID("SelfPortal")) {
+			this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		}
 	}
 
 	public void setImmuneToZombification(boolean p_34565_) {

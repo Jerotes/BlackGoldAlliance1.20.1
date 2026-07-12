@@ -158,6 +158,23 @@
         }
       ],
       "conditions": [ { "condition": "minecraft:random_chance", "chance": 0.75 } ]
+    },
+    {
+      "rolls": { "min": 1, "max": 2 },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "enchantments": [
+                "jerotes:bane_of_humanoids"
+              ],
+              "function": "minecraft:enchant_randomly"
+            }
+          ]
+        }
+      ]
     }
   ],
   "random_sequence": "blackgoldalliance:entities/piglin_raid_nether_portal_player_virtory/level_v"

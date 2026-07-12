@@ -69,7 +69,7 @@ public class EntityAboutEvent {
 
 	//计时
 	@SubscribeEvent
-	public static void Tick(LivingDestroyBlockEvent event) {
+	public static void Tick(LivingEvent.LivingTickEvent event) {
 		LivingEntity entity = event.getEntity();
 		if (entity == null || !entity.isAlive())
 			return;

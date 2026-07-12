@@ -229,7 +229,9 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 		this.setEntityNeedDiscard(compoundTag.getBoolean("EntityNeedDiscard"));
 		this.setBlackGoldAlliance(compoundTag.getBoolean("BlackGoldAlliance"));
 		this.setEntityNeedDiscardTick(compoundTag.getInt("EntityNeedDiscardTick"));
-		this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		if (compoundTag.hasUUID("SelfPortal")) {
+			this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		}
 	}
 	@Override
 	protected void defineSynchedData() {

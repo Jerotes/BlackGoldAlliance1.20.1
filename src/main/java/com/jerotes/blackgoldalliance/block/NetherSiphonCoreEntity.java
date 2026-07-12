@@ -682,33 +682,8 @@ public class NetherSiphonCoreEntity extends RandomizableContainerBlockEntity imp
 			}
 		}
 	}
-	private boolean isPortalInCombat(Entity portal) {
-		if (portal instanceof PiglinRaidNetherPortalEntity p) {
-			return p.isAlive() && p.isChallenge() && !p.isVictory();
-		}
-		if (portal instanceof BlackGoldPiglinBossBaseEntity b) {
-			return b.isAlive() && b.isChallenge() && !b.isVictory();
-		}
-		return false;
-	}
-	private boolean isPortalVictory(Entity portal) {
-		if (portal instanceof PiglinRaidNetherPortalEntity p) {
-			return p.isAlive() && p.isVictory();
-		}
-		if (portal instanceof BlackGoldPiglinBossBaseEntity b) {
-			return b.isAlive() && b.isVictory();
-		}
-		return false;
-	}
-	private boolean isPortalEnded(Entity portal) {
-		if (portal instanceof PiglinRaidNetherPortalEntity p) {
-			return !p.isAlive() || p.isVictory() || !p.isChallenge();
-		}
-		if (portal instanceof BlackGoldPiglinBossBaseEntity b) {
-			return !b.isAlive() || b.isVictory() || !b.isChallenge();
-		}
-		return true;
-	}
+
+
 	public void startChallenge(int raidLevel, Player player) {
 		if (level instanceof ServerLevel serverLevel) {
 			BlockPos blockPos1 = this.getBlockPos();

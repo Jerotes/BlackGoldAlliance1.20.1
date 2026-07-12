@@ -11,7 +11,9 @@ import com.jerotes.blackgoldalliance.event.BossBarEvent;
 import com.jerotes.blackgoldalliance.goal.ForceNearestAttackableTargetGoal;
 import com.jerotes.blackgoldalliance.goal.SwitchTargetToAllyTargetGoal;
 import com.jerotes.blackgoldalliance.goal.TheBlackGoldMarshalMeleeAttackGoal;
-import com.jerotes.blackgoldalliance.init.*;
+import com.jerotes.blackgoldalliance.init.BGAItems;
+import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
+import com.jerotes.blackgoldalliance.init.BGASoundEvents;
 import com.jerotes.blackgoldalliance.spell.OtherSpellFind;
 import com.jerotes.jerotes.client.sound.BossMusicPlayer;
 import com.jerotes.jerotes.config.MainConfig;
@@ -76,7 +78,6 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
@@ -121,7 +122,7 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 
 	public TheBlackGoldMarshalEntity(EntityType<? extends TheBlackGoldMarshalEntity> type, Level level) {
 		super(type, level);
-		xpReward = 50;
+		xpReward = 700;
 		this.setCanPickUpLoot(false);
 		this.armorDropChances[EquipmentSlot.HEAD.getIndex()] = (float) OtherMainConfig.TheBlackGoldMarshalDropEquipmentChance;
 		this.armorDropChances[EquipmentSlot.CHEST.getIndex()] = (float) OtherMainConfig.TheBlackGoldMarshalDropEquipmentChance;
@@ -1565,64 +1566,61 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 				this.setAnimationState("dead");
 			}
 
-			//公示
-			double x = this.getX();
-			double y = this.getY();
-			double z = this.getZ();
-			AABB area = new AABB(x - 64, y - 64, z - 64, x + 64, y + 64, z + 64);
-			List<ServerPlayer> nearPlayers = level().getEntitiesOfClass(ServerPlayer.class, area);
-			nearPlayers.removeIf(serverPlayer -> serverPlayer.isSpectator());
-			for (Player player : nearPlayers) {
-				NetherSiphonCoreEntity.SetDefeatTheHighestLevelPiglinRaid(player, Math.max(this.getRaidLevel(), NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(player)));
-			}
-			if (this.getTargetPlayer() != null && this.getTargetPlayer() instanceof ServerPlayer serverPlayer) {
-				if (nearPlayers.contains(serverPlayer)) {
-					Component component;
+			if (this.isChallenge()) {
+				//公示
+				double x = this.getX();
+				double y = this.getY();
+				double z = this.getZ();
+				AABB area = new AABB(x - 64, y - 64, z - 64, x + 64, y + 64, z + 64);
+				List<ServerPlayer> nearPlayers = level().getEntitiesOfClass(ServerPlayer.class, area);
+				nearPlayers.removeIf(serverPlayer -> serverPlayer.isSpectator());
+				for (Player player : nearPlayers) {
+					NetherSiphonCoreEntity.SetDefeatTheHighestLevelPiglinRaid(player, Math.max(this.getRaidLevel(), NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(player)));
+				}
+				if (this.getTargetPlayer() != null && this.getTargetPlayer() instanceof ServerPlayer serverPlayer) {
+					if (nearPlayers.contains(serverPlayer)) {
+						Component component;
+						if (this.isVictory()) {
+							component = Component.translatable("message.blackgoldalliance.piglin_win").withStyle(ChatFormatting.GOLD);
+						} else {
+							component = Component.translatable("message.blackgoldalliance.player_win", NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(serverPlayer)).withStyle(ChatFormatting.GOLD);
+						}
+						serverPlayer.sendSystemMessage(component);
+						serverPlayer.displayClientMessage(component, true);
+						nearPlayers.remove(serverPlayer);
+					}
+				}
+				Component component;
+				for (ServerPlayer player : nearPlayers) {
 					if (this.isVictory()) {
 						component = Component.translatable("message.blackgoldalliance.piglin_win").withStyle(ChatFormatting.GOLD);
+					} else {
+						component = Component.translatable("message.blackgoldalliance.player_win", NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(player)).withStyle(ChatFormatting.GOLD);
 					}
-					else {
-						component = Component.translatable("message.blackgoldalliance.player_win", NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(serverPlayer)).withStyle(ChatFormatting.GOLD);
-					}
-					serverPlayer.sendSystemMessage(component);
-					serverPlayer.displayClientMessage(component, true);
-					nearPlayers.remove(serverPlayer);
+					player.sendSystemMessage(component);
+					player.displayClientMessage(component, true);
 				}
-			}
-			Component component;
-			for (ServerPlayer player : nearPlayers) {
-				if (this.isVictory()) {
-					component = Component.translatable("message.blackgoldalliance.piglin_win").withStyle(ChatFormatting.GOLD);
-				}
-				else {
-					component = Component.translatable("message.blackgoldalliance.player_win", NetherSiphonCoreEntity.GetDefeatTheHighestLevelPiglinRaid(player)).withStyle(ChatFormatting.GOLD);
-				}
-				player.sendSystemMessage(component);
-				player.displayClientMessage(component, true);
-			}
-			//结算清除时间
-			if (this.isChallenge()) {
-				List<LivingEntity> nearestPiglin = level().getEntitiesOfClass(LivingEntity.class, area);
-				nearestPiglin.removeIf(livingEntity -> !(livingEntity instanceof PiglinRaiderEntity || livingEntity instanceof BlackGoldPiglinEntity || livingEntity instanceof BlackGoldStepperEntity || livingEntity instanceof AnimalHoglinEntity));
-				for (LivingEntity livingEntity : nearestPiglin) {
-					if (livingEntity == null) continue;
-					if ((this.distanceTo(livingEntity)) > 128) continue;
-					if (!AttackFind.SameFactionAvoidDamage(this, livingEntity, false)) continue;
-					if (livingEntity instanceof BlackGoldPiglinEntity blackGoldPiglinEntity) {
-						if (blackGoldPiglinEntity.getSelfPortal() != this.getUUID()) continue;
-						blackGoldPiglinEntity.setEntityNeedDiscardTick(65);
-					}
-					else if (livingEntity instanceof PiglinRaiderEntity piglinRaiderEntity) {
-						if (piglinRaiderEntity.getSelfPortal() != this.getUUID()) continue;
-						piglinRaiderEntity.setEntityNeedDiscardTick(65);
-					}
-					else if (livingEntity instanceof AnimalHoglinEntity animalHoglinEntity) {
-						if (animalHoglinEntity.getSelfPortal() != this.getUUID()) continue;
-						animalHoglinEntity.setEntityNeedDiscardTick(65);
-					}
-					else if (livingEntity instanceof BlackGoldStepperEntity blackGoldStepperEntity) {
-						if (blackGoldStepperEntity.getSelfPortal() != this.getUUID()) continue;
-						blackGoldStepperEntity.setEntityNeedDiscardTick(65);
+				//结算清除时间
+				if (this.isChallenge()) {
+					List<LivingEntity> nearestPiglin = level().getEntitiesOfClass(LivingEntity.class, area);
+					nearestPiglin.removeIf(livingEntity -> !(livingEntity instanceof PiglinRaiderEntity || livingEntity instanceof BlackGoldPiglinEntity || livingEntity instanceof BlackGoldStepperEntity || livingEntity instanceof AnimalHoglinEntity));
+					for (LivingEntity livingEntity : nearestPiglin) {
+						if (livingEntity == null) continue;
+						if ((this.distanceTo(livingEntity)) > 128) continue;
+						if (!AttackFind.SameFactionAvoidDamage(this, livingEntity, false)) continue;
+						if (livingEntity instanceof BlackGoldPiglinEntity blackGoldPiglinEntity) {
+							if (blackGoldPiglinEntity.getSelfPortal() != this.getUUID()) continue;
+							blackGoldPiglinEntity.setEntityNeedDiscardTick(65);
+						} else if (livingEntity instanceof PiglinRaiderEntity piglinRaiderEntity) {
+							if (piglinRaiderEntity.getSelfPortal() != this.getUUID()) continue;
+							piglinRaiderEntity.setEntityNeedDiscardTick(65);
+						} else if (livingEntity instanceof AnimalHoglinEntity animalHoglinEntity) {
+							if (animalHoglinEntity.getSelfPortal() != this.getUUID()) continue;
+							animalHoglinEntity.setEntityNeedDiscardTick(65);
+						} else if (livingEntity instanceof BlackGoldStepperEntity blackGoldStepperEntity) {
+							if (blackGoldStepperEntity.getSelfPortal() != this.getUUID()) continue;
+							blackGoldStepperEntity.setEntityNeedDiscardTick(65);
+						}
 					}
 				}
 			}

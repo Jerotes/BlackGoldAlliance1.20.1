@@ -389,6 +389,10 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
         return optionalUUID.orElseGet(this::getUUID);
 	}
 	public void setTargetPlayer(Player player) {
+		if (player == null) {
+			this.getEntityData().set(TARGET_PLAYER, Optional.empty());
+			return;
+		}
 		this.getEntityData().set(TARGET_PLAYER, Optional.of(player.getUUID()));
 	}
 	public void setTargetPlayerUUID(UUID player) {
@@ -765,7 +769,13 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
 						theBlackGoldMarshalEntity.setChallenge(this.isChallenge());
 						this.setChallenge(false);
 						theBlackGoldMarshalEntity.setRaidLevel(this.getRaidLevel());
-						theBlackGoldMarshalEntity.setTargetPlayer(this.getTargetPlayer());
+						Player targetPlayer = this.getTargetPlayer();
+						if (targetPlayer == null && this.getTarget() instanceof Player playerTarget) {
+							targetPlayer = playerTarget;
+						}
+						if (targetPlayer != null) {
+							theBlackGoldMarshalEntity.setTargetPlayer(targetPlayer);
+						}
 						theBlackGoldMarshalEntity.setTarget(this.getTarget());
 						theBlackGoldMarshalEntity.setStartPos(new BlockPos((int) this.getStartX(), (int) this.getStartY(), (int) this.getStartZ()));
 						if (teams != null) {

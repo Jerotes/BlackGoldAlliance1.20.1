@@ -845,7 +845,9 @@ public class BlackGoldPiglinEntity extends AbstractPiglin implements CrossbowAtt
 		this.shieldCoolDown = compoundTag.getInt("ShieldCoolDown");
 		this.shieldCanUse = compoundTag.getInt("ShieldCanUse");
 		this.setEntityNeedDiscardTick(compoundTag.getInt("EntityNeedDiscardTick"));
-		this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		if (compoundTag.hasUUID("SelfPortal")) {
+			this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		}
 		this.readPersistentAngerSaveData(this.level(), compoundTag);
 		this.readInventoryFromTag(compoundTag);
 	}

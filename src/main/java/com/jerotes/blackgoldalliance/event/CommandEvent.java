@@ -5,6 +5,7 @@ import com.jerotes.blackgoldalliance.entity.Other.PortalPointEntity;
 import com.jerotes.blackgoldalliance.init.BGAEntityType;
 import com.jerotes.jerotes.util.Main;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -14,6 +15,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,6 +52,24 @@ public class CommandEvent {
 																	}
 																}
 															}
+															return 0;
+														}
+												)
+										)
+								)
+						)
+				)
+				.then(Commands.literal("event")
+						.then(Commands.literal("piglin_raid")
+								.then(Commands.argument("player", EntityArgument.player())
+										.then(Commands.argument("number", IntegerArgumentType.integer(1))
+												.executes(arguments ->
+														{
+															int n = IntegerArgumentType.getInteger(arguments, "number");
+															Player player = EntityArgument.getPlayer(arguments, "player");
+															EntityAboutEvent.findNearestNetherSiphonCore(player, 64).ifPresent(core -> {
+																core.startChallenge(n, player);
+															});
 															return 0;
 														}
 												)

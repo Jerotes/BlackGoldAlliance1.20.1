@@ -134,7 +134,7 @@ public class NetherSiphonCore extends BaseEntityBlock {
 	public VoxelShape getVisualShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {
 		if (state.getValue(OPEN))
 			return Shapes.empty();
-		return getVisualShape(state, blockGetter, pos, context);
+		return super.getVisualShape(state, blockGetter, pos, context);
 	}
 
 	@Override

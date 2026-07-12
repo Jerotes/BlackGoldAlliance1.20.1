@@ -880,7 +880,9 @@ public class BlackGoldStepperEntity extends Strider implements JerotesEntity, Fa
 		}
 		this.setManuallyControlCombatJerotes(compoundTag.getBoolean("IsManuallyControlCombatJerotes"));
 		this.setEntityNeedDiscardTick(compoundTag.getInt("EntityNeedDiscardTick"));
-		this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		if (compoundTag.hasUUID("SelfPortal")) {
+			this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
+		}
 		this.readPersistentAngerSaveData(this.level(), compoundTag);
 		this.updateContainerEquipment();
 	}
