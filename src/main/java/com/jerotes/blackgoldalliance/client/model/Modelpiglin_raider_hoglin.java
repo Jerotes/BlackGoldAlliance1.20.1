@@ -9,6 +9,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Mob;
 
 public class Modelpiglin_raider_hoglin<T extends PiglinRaiderHoglinEntity> extends AgeableHierarchicalModel<T> {
@@ -77,8 +78,7 @@ public class Modelpiglin_raider_hoglin<T extends PiglinRaiderHoglinEntity> exten
 			this.head.yScale = 1f;
 			this.head.zScale = 1f;
 		}
-		this.head.yRot = f4 * ((float)Math.PI / 180F);
-		this.head.xRot = f5 * ((float)Math.PI / 180F);
+		this.applyHeadRotation(t, f4, f5, f3);
 		if (t.isVehicle() && t.getControllingPassenger() == t.getOwner()) {
 			this.animateWalk(PiglinRaiderHoglinAnimation.RIDERUN, f, f2, 2.0f, 2.0f);
 		}
@@ -98,6 +98,12 @@ public class Modelpiglin_raider_hoglin<T extends PiglinRaiderHoglinEntity> exten
 		this.animate(t.sitAnimationState, PiglinRaiderHoglinAnimation.SIT, f3);
 		this.animate(t.toSitAnimationState, PiglinRaiderHoglinAnimation.TOSIT, f3);
 		this.animate(t.stopSitAnimationState, PiglinRaiderHoglinAnimation.STOPSIT, f3);
+	}
+	private void applyHeadRotation(T t, float f, float f2, float f3) {
+		f = Mth.clamp(f, -60.0f, 60.0f);
+		f2 = Mth.clamp(f2, -60.0f, 60.0f);
+		this.head.yRot = f * ((float) Math.PI / 180F);
+		this.head.xRot = f2 * ((float) Math.PI / 180F);
 	}
 
 	@Override
