@@ -6,6 +6,7 @@ import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
 import com.jerotes.blackgoldalliance.init.BGASoundEvents;
 import com.jerotes.jerotes.spell.MagicSpell;
 import com.jerotes.jerotes.spell.MagicType;
+import com.jerotes.jerotes.spell.SpellSchool;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
