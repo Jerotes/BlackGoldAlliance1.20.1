@@ -3,10 +3,12 @@ package com.jerotes.blackgoldalliance.entity.Animal;
 import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.IBlackGoldPiglin;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderEntity;
 import com.jerotes.blackgoldalliance.init.BGAEntityType;
 import com.jerotes.jerotes.entity.Interface.*;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.*;
+import com.jerotes.jerotes.init.JerotesItems;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.item.Interface.ItemBaseGiantBeastArmor;
 import com.jerotes.jerotes.item.Interface.ItemBeastArmor;
@@ -61,6 +63,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Team;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -248,15 +251,15 @@ public class PiglinRaiderHoglinEntity extends AnimalHoglinEntity implements Jero
 		return this.ridingOffset(entity) * this.getScale();
 	}
 	protected float ridingOffset(Entity entity) {
-		return -0.25F;
+		return isBaby() ? -0.9F : -0.45F;
 	}
 	public Vec3 getPassengerRidingPosition(Entity entity) {
 		return (new Vec3(this.getPassengerAttachmentPoint(entity, this.getDimensions(this.getPose()), this.getScale()).rotateY(-this.yBodyRot * ((float)Math.PI / 180F)))).add(this.position());
 	}
 	protected Vector3f getPassengerAttachmentPoint(Entity entity, EntityDimensions entityDimensions, float f) {
-		float f2 = 0.5f;
+		float f2 = 0.25f;
 		float f3 = 0f;
-		float f4 = 0.2f;
+		float f4 = 0.1f;
 		if (entity instanceof BlackGoldPiglinEntity blackGoldPiglinEntity) {
 			if (InventoryEntity.isSpear(blackGoldPiglinEntity, blackGoldPiglinEntity.getMainHandItem()) || InventoryEntity.isSpear(blackGoldPiglinEntity, blackGoldPiglinEntity.getOffhandItem())) {
 				float fs = (10 - blackGoldPiglinEntity.getAttackAnim());
@@ -1311,6 +1314,36 @@ public class PiglinRaiderHoglinEntity extends AnimalHoglinEntity implements Jero
 			return false;
 		}
 		return super.canAttack(livingEntity);
+	}
+
+
+
+	@Nullable
+	public SpawnGroupData finalizeSpawnSpecial(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+		if (!this.level().isClientSide()) {
+			this.setBaby(false);
+		}
+		if (mobSpawnType != MobSpawnType.CONVERSION && mobSpawnType != MobSpawnType.COMMAND) {
+			PlayerTeam teams = (PlayerTeam) this.getTeam();
+			PiglinRaiderEntity raider = BGAEntityType.PIGLIN_RAIDER_WARRIOR.get().spawn(serverLevelAccessor.getLevel(), BlockPos.containing(this.getX(), this.getY(), this.getZ()), MobSpawnType.JOCKEY);
+			if (raider != null) {
+				if (teams != null) {
+					serverLevelAccessor.getLevel().getScoreboard().addPlayerToTeam(raider.getStringUUID(), teams);
+				}
+				raider.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0f);
+				raider.finalizeSpawn(serverLevelAccessor, difficultyInstance, MobSpawnType.JOCKEY, null, null);
+				raider.setItemInHand(InteractionHand.MAIN_HAND, JerotesItems.GOLDEN_SPEAR.get().getDefaultInstance());
+				if (!this.level().isClientSide()) {
+					raider.startRiding(this);
+					raider.setCanPickUpLoot(false);
+					raider.setEntityNeedDiscardTick(this.getEntityNeedDiscardTick());
+					raider.setSelfPortal(this.getSelfPortal());
+				}
+				this.equipSaddle(raider.getSoundSource());
+				this.level().gameEvent(this, GameEvent.EQUIP, this.position());
+			}
+		}
+		return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
 	}
 
 	public void die(DamageSource p_21809_) {

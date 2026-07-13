@@ -95,7 +95,9 @@ public abstract class BlackGoldPiglinBossBaseEntity extends BlackGoldPiglinEntit
 		this.setRaidLevel(compoundTag.getInt("RaidLevel"));
 		this.setVictory(compoundTag.getBoolean("IsVictory"));
 		this.setChallenge(compoundTag.getBoolean("IsChallenge"));
-		this.setTargetPlayerUUID(compoundTag.getUUID("TargetPlayerUUID"));
+		if (compoundTag.hasUUID("TargetPlayerUUID")) {
+			this.setTargetPlayerUUID(compoundTag.getUUID("TargetPlayerUUID"));
+		}
 		this.setStartPos(new BlockPos((int) compoundTag.getInt("XStart"), (int) compoundTag.getInt("YStart"), (int) compoundTag.getInt("ZStart")));
 	}
 	@Override

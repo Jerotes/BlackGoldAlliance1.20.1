@@ -345,10 +345,10 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, 10.25, 1.25]
+			"translation": [0, 14.25, 1.25]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, 10.25, 1.25]
+			"translation": [0, 14.25, 1.25]
 		},
 		"firstperson_righthand": {
 			"translation": [0, 10.25, 1.25],

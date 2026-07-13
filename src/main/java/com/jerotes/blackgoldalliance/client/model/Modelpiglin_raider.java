@@ -4,6 +4,7 @@ import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.client.animation.BlackGoldPiglinAnimation;
 import com.jerotes.blackgoldalliance.client.animation.BlackGoldPiglinHeavyAnimation;
 import com.jerotes.blackgoldalliance.client.animation.BlackGoldPiglinHunterAnimation;
+import com.jerotes.blackgoldalliance.client.animation.BlackGoldPiglinRideAnimation;
 import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderEntity;
 import com.jerotes.jerotes.client.model.Modelspecial_action;
 import com.jerotes.jerotes.entity.Interface.InventoryEntity;
@@ -171,6 +172,9 @@ public class Modelpiglin_raider<T extends PiglinRaiderEntity> extends Modelspeci
 
 		//默认
 		this.animate(t.idleAnimationState, BlackGoldPiglinAnimation.IDLE_RAIDER, f3);
+		if (t.isPassenger()) {
+			this.animate(t.idleAnimationState, BlackGoldPiglinRideAnimation.RIDE, f3);
+		}
 
 		if (t.getMainHandItem().getItem() instanceof CrossbowItem) {
 			if (!t.isLeftHanded()) {

@@ -2,12 +2,14 @@ package com.jerotes.blackgoldalliance.entity.Other;
 
 import com.jerotes.blackgoldalliance.entity.Animal.AnimalHoglinEntity;
 import com.jerotes.blackgoldalliance.entity.Animal.BlackGoldStepperEntity;
+import com.jerotes.blackgoldalliance.entity.Animal.PiglinRaiderHoglinEntity;
 import com.jerotes.blackgoldalliance.entity.Boss.PiglinRaidNetherPortalEntity;
 import com.jerotes.blackgoldalliance.entity.Interface.PortalPointChangeEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderEntity;
 import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
+import com.jerotes.jerotes.init.JerotesItems;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.ParticlesUse;
@@ -18,12 +20,17 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.monster.hoglin.HoglinBase;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
@@ -32,6 +39,8 @@ import net.minecraft.world.scores.Team;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -47,6 +56,7 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 	private static final EntityDataAccessor<Boolean> BLACK_GOLD_ALLIANCE = SynchedEntityData.defineId(PortalPointEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Integer> ENTITY_NEED_DISCARD_TICK = SynchedEntityData.defineId(PortalPointEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Optional<UUID>> SELF_PORTAL = SynchedEntityData.defineId(PortalPointEntity.class, EntityDataSerializers.OPTIONAL_UUID);
+	private static final EntityDataAccessor<Integer> RAID_LEVEL = SynchedEntityData.defineId(PortalPointEntity.class, EntityDataSerializers.INT);
 
 	public PortalPointEntity(EntityType<? extends PortalPointEntity> entityType, Level level) {
 		super(entityType, level);
@@ -195,6 +205,13 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 	public void setSelfPortal(UUID uuid) {
 		this.getEntityData().set(SELF_PORTAL, Optional.of(uuid));
 	}
+	//等级
+	public int getRaidLevel() {
+		return this.getEntityData().get(RAID_LEVEL);
+	}
+	public void setRaidLevel(int n) {
+		this.getEntityData().set(RAID_LEVEL, n);
+	}
 	@Override
 	protected void addAdditionalSaveData(CompoundTag compoundTag) {
 		if (this.ownerUUID != null) {
@@ -212,6 +229,7 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 		compoundTag.putBoolean("BlackGoldAlliance", this.isBlackGoldAlliance());
 		compoundTag.putInt("EntityNeedDiscardTick", this.getEntityNeedDiscardTick());
 		compoundTag.putUUID("SelfPortal", this.getSelfPortal());
+		compoundTag.putInt("RaidLevel", this.getRaidLevel());
 	}
 	@Override
 	protected void readAdditionalSaveData(CompoundTag compoundTag) {
@@ -232,6 +250,7 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 		if (compoundTag.hasUUID("SelfPortal")) {
 			this.setSelfPortal(compoundTag.getUUID("SelfPortal"));
 		}
+		this.setRaidLevel(compoundTag.getInt("RaidLevel"));
 	}
 	@Override
 	protected void defineSynchedData() {
@@ -246,6 +265,7 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 		this.getEntityData().define(BLACK_GOLD_ALLIANCE, false);
 		this.getEntityData().define(ENTITY_NEED_DISCARD_TICK, 0);
 		this.getEntityData().define(SELF_PORTAL, Optional.of(this.getUUID()));
+		this.getEntityData().define(RAID_LEVEL, 1);
 	}
 	protected float getMoveSpeed() {
 		return 1f;
@@ -345,6 +365,26 @@ public class PortalPointEntity extends Entity implements OwnableEntity {
 						}
 					}
 					mob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(mob.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+					//猪灵袭击者疣猪兽相关
+					if (mob instanceof PiglinRaiderHoglinEntity piglinRaiderHoglin) {
+						piglinRaiderHoglin.setBaby(false);
+							//鞍
+						piglinRaiderHoglin.equipSaddle(SoundSource.NEUTRAL);
+						if (this.getRaidLevel() >= 2) {
+							//盔甲
+							piglinRaiderHoglin.equipArmor(null, new ItemStack(JerotesItems.GOLDEN_GIANT_BEAST_ARMOR.get()));
+						}
+						else {
+							ItemStack itemStack = new ItemStack(JerotesItems.LEATHER_GIANT_BEAST_ARMOR.get());
+							List<DyeItem> dyes = new ArrayList<>();
+							dyes.add((DyeItem) Items.RED_DYE);
+							ItemStack result = DyeableLeatherItem.dyeArmor(itemStack, dyes);
+							//盔甲
+							piglinRaiderHoglin.equipArmor(null, result);
+						}
+						piglinRaiderHoglin.finalizeSpawnSpecial(serverLevel, serverLevel.getCurrentDifficultyAt(mob.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+					}
+
 					if (!mob.isInvisible()) {
 						for (int i2 = 0; i2 < 32; ++i2) {
 							serverLevel.sendParticles(BGAParticleTypes.PORTAL_POINT.get(), mob.getRandomX(0.5), mob.getRandomY(), mob.getRandomZ(0.5), 0, mob.getRandom().nextGaussian(), 0.0, mob.getRandom().nextGaussian(), 0);

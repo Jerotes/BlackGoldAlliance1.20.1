@@ -14,6 +14,7 @@ import com.jerotes.blackgoldalliance.event.BossBarEvent;
 import com.jerotes.blackgoldalliance.goal.ForceNearestAttackableTargetGoal;
 import com.jerotes.blackgoldalliance.goal.SwitchTargetToAllyTargetGoal;
 import com.jerotes.blackgoldalliance.init.BGAEntityType;
+import com.jerotes.blackgoldalliance.init.BGAItems;
 import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
 import com.jerotes.blackgoldalliance.util.OtherParticlesUse;
 import com.jerotes.jerotes.client.sound.BossMusicPlayer;
@@ -67,6 +68,7 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.AABB;
@@ -325,6 +327,24 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
 	public boolean canChangeDimensions() {
 		return false;
 	}
+	@Override
+	public ItemStack getPickResult() {
+		if (this.getRaidLevel() == 1)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_I_SPAWN_EGG.get());
+		if (this.getRaidLevel() == 2)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_II_SPAWN_EGG.get());
+		if (this.getRaidLevel() == 3)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_III_SPAWN_EGG.get());
+		if (this.getRaidLevel() == 4)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_IV_SPAWN_EGG.get());
+		if (this.getRaidLevel() == 5)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_V_SPAWN_EGG.get());
+		if (this.getRaidLevel() == 6)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_VI_SPAWN_EGG.get());
+		if (this.getRaidLevel() > 6)
+			return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_VI_SPAWN_EGG.get());
+		return new ItemStack(BGAItems.PIGLIN_RAID_NETHER_PORTAL_I_SPAWN_EGG.get());
+	}
 
 	public int summonMaxTick = 0;
 	public boolean isSummonedEliteOrBoss = false;
@@ -527,7 +547,9 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
 		this.isSummonedEliteOrBoss = compoundTag.getBoolean("IsSummonedEliteOrBoss");
 		this.setVictory(compoundTag.getBoolean("IsVictory"));
 		this.setChallenge(compoundTag.getBoolean("IsChallenge"));
-		this.setTargetPlayerUUID(compoundTag.getUUID("TargetPlayerUUID"));
+		if (compoundTag.hasUUID("TargetPlayerUUID")) {
+			this.setTargetPlayerUUID(compoundTag.getUUID("TargetPlayerUUID"));
+		}
 		this.setBossRaid(compoundTag.getInt("BossRaid"));
 		this.setStartPos(new BlockPos((int) compoundTag.getInt("XStart"), (int) compoundTag.getInt("YStart"), (int) compoundTag.getInt("ZStart")));
 		this.bossEvent.setId(this.getUUID());
@@ -871,6 +893,7 @@ public class PiglinRaidNetherPortalEntity extends PathfinderMob implements Neutr
 				portalPointEntity.setTargetAddX(targetPosX - (float) this.getX());
 				portalPointEntity.setTargetAddY(targetPosY - (float) this.getY());
 				portalPointEntity.setTargetAddZ(targetPosZ - (float) this.getZ());
+				portalPointEntity.setRaidLevel(this.getRaidLevel());
 				if (teams != null) {
 					serverLevel.getScoreboard().addPlayerToTeam(portalPointEntity.getStringUUID(), teams);
 				}
