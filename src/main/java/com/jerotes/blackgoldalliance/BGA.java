@@ -6,14 +6,9 @@ import com.jerotes.blackgoldalliance.init.*;
 import com.jerotes.blackgoldalliance.network.OtherPacketHandler;
 import com.jerotes.blackgoldalliance.spell.OtherSpellType;
 import com.jerotes.jerotes.spell.SpellRegistry;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -21,8 +16,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-
-import java.io.IOException;
 
 @Mod(BGA.MODID)
 public class BGA
@@ -57,18 +50,5 @@ public class BGA
     private void initClient(final FMLClientSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
         event.enqueueWork(CilentInit::clientInit);
-    }
-
-    @SubscribeEvent
-    public static void onRegisterShaders(RegisterShadersEvent event) throws IOException {
-        event.registerShader(
-                new ShaderInstance(
-                        event.getResourceProvider(),
-                        new ResourceLocation("blackgoldalliance", "shockwave"),
-                        DefaultVertexFormat.POSITION_TEX_COLOR
-                ),
-                shader -> {
-                }
-        );
     }
 }

@@ -15,7 +15,7 @@ public class BGAParticles {
 		event.registerSpriteSet(BGAParticleTypes.WARPED_BREATH.get(), ShootParticle::provider);
 		event.registerSpriteSet(BGAParticleTypes.WARPED_BREATH_FOG.get(), FogParticle::provider);
 		event.registerSpriteSet(BGAParticleTypes.RAY_OF_WARPED.get(), RayParticle::provider);
-		event.registerSpriteSet(BGAParticleTypes.NETHER_SIPHON_LINK_STATION.get(), ReachParticle::provider);
+		event.registerSpriteSet(BGAParticleTypes.NETHER_SIPHON_LINK_STATION.get(), ShockwaveParticle.Provider::new);
 		event.registerSpriteSet(BGAParticleTypes.MARSHAL_SHOCK.get(), ShootParticle::provider);
 
 		event.registerSpriteSet(BGAParticleTypes.CONJURE_SHAMANIC_ZOMBIE_PIGMAN_DISPLAY.get(), DisplayParticle::provider);
