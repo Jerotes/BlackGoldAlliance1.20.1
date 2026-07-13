@@ -25,7 +25,7 @@ public class OtherSpellList {
 			public int baseSpellLevel() {
 				return 4;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 16;
 			}
 			public boolean canUse() {
@@ -35,6 +35,9 @@ public class OtherSpellList {
 					return super.canUse() && list.size() <= getSpellLevel() * 3;
 				}
 				return super.canUse();
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.NECROMANCY;
 			}
 		};
 	}
@@ -50,6 +53,9 @@ public class OtherSpellList {
 			public int baseSpellLevel() {
 				return 3;
 			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
+			}
 		};
 	}
 	//诡异射线
@@ -64,8 +70,11 @@ public class OtherSpellList {
 			public int baseSpellLevel() {
 				return 3;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 18;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -81,11 +90,14 @@ public class OtherSpellList {
 			public int baseSpellLevel() {
 				return 2;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 12;
 			}
 			public boolean canUseTargetNone() {
 				return true;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}
