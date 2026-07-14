@@ -385,8 +385,6 @@ public class BlackGoldShamanEntity extends BlackGoldPiglinEntity implements Elit
 				}
 			}
 		}
-		if (EntityAndItemFind.MagicResistance(damagesource))
-			return super.hurt(damagesource, amount / 5);
 		return super.hurt(damagesource, amount);
 	}
 	@Override

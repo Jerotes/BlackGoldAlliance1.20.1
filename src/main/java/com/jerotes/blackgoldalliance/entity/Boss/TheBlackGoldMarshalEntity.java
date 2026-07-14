@@ -1485,8 +1485,8 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 		}
 
 		//黑金锻身
-		if (EntityAndItemFind.MagicResistance(damageSource))
-			amount /= 5;
+		if (EntityAndItemFind.canSelfResistMagic(damageSource, amount, this))
+			amount *= 0.75f;
 		else if (damageSource.is(DamageTypeTags.BYPASSES_ARMOR) && !damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
 			amount /= (this.getHealth() > this.getMaxHealth() / 2 ? 2f: 3f);
 		}
