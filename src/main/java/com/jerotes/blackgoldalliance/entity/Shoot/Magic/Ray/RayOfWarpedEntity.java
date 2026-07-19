@@ -59,13 +59,17 @@ public class RayOfWarpedEntity extends BaseRayEntity {
         if (entity instanceof LivingEntity livingEntity) {
             Entity entity2 = this.getOwner();
             DamageSource damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.POISON, this, entity2);
-            boolean bl = livingEntity.hurt(damageSource, (spellLevelDamage + 1) * Main.randomReach(RandomSource.create(), 1, 8));
+            boolean bl = livingEntity.hurt(damageSource,
+                    Main.rollDice(spellLevelDamage + 1, Main.randomReach(RandomSource.create(), 1, 8), this.random)
+            );
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.DEADLY_POISON.get(), 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
             }
             else {
                 damageSource = AttackFind.findDamageType(livingEntity, DamageTypes.INDIRECT_MAGIC, this, entity2);
-                livingEntity.hurt(damageSource, (spellLevelDamage + 1) * Main.randomReach(RandomSource.create(), 1, 8));
+                livingEntity.hurt(damageSource,
+                        Main.rollDice(spellLevelDamage + 1, Main.randomReach(RandomSource.create(), 1, 8), this.random)
+                );
             }
             this.playSound(JerotesSoundEvents.SPELL, 3.0f, 1.0f);
             this.setUseful(false);

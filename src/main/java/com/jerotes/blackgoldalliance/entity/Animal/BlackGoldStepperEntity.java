@@ -4,7 +4,6 @@ import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.IBlackGoldPiglin;
-import com.jerotes.blackgoldalliance.init.BGABlocks;
 import com.jerotes.blackgoldalliance.init.BGAEntityType;
 import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.jerotes.entity.Interface.*;
@@ -165,7 +164,7 @@ public class BlackGoldStepperEntity extends Strider implements JerotesEntity, Fa
 		return super.isSuffocating() && !this.isSaddled();
 	}
 	protected float nextStep() {
-		if (this.isVehicle())
+		if (this.isVehicle() && this.getControllingPassenger() instanceof Player)
 			return (float)((int)this.moveDist + 2);
 		return (float)((int)this.moveDist + 1);
 	}

@@ -295,8 +295,11 @@ public class PiglinRaiderEntity extends AbstractPiglin implements CrossbowAttack
 		this.goalSelector.addGoal(1, new JerotesPikeUseGoal(this,  1.2f, true));
 		this.goalSelector.addGoal(2, new JerotesMeleeAttackGoal(this, 1.1, true));
 		this.goalSelector.addGoal(3, new PiglinFollowPortalGoal(this, 1.1f));
-		this.goalSelector.addGoal(3, new AvoidEntityGoal<ZombifiedPiglin>(this, ZombifiedPiglin.class, 12.0f, 1.2, 1.2, EntitySelector.NO_SPECTATORS::test));
-		this.goalSelector.addGoal(3, new AvoidEntityGoal<Zoglin>(this, Zoglin.class, 12.0f, 1.2, 1.2, EntitySelector.NO_SPECTATORS::test));
+		if (!(this instanceof PiglinRaiderBruteEntity)) {
+			this.goalSelector.addGoal(3, new AvoidEntityGoal<ZombifiedPiglin>(this, ZombifiedPiglin.class, 12.0f, 1.2, 1.2, EntitySelector.NO_SPECTATORS::test));
+			this.goalSelector.addGoal(3, new AvoidEntityGoal<Zoglin>(this, Zoglin.class, 12.0f, 1.2, 1.2, EntitySelector.NO_SPECTATORS::test));
+			this.goalSelector.addGoal(3, new PiglinAvoidSoulFireGoal(this, 1.0, 8, 4, 8.0));
+		}
 		this.goalSelector.addGoal(3, new AvoidEntityGoal<WitherSkeleton>(this, WitherSkeleton.class, 12.0f, 1.4, 1.4, EntitySelector.NO_SPECTATORS::test){
 			@Override
 			public boolean canUse() {
@@ -315,7 +318,6 @@ public class PiglinRaiderEntity extends AbstractPiglin implements CrossbowAttack
 				return super.canUse();
 			}
 		});
-		this.goalSelector.addGoal(3, new PiglinAvoidSoulFireGoal(this, 1.0, 8, 4, 8.0));
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.6));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0f));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, HumanEntity.class, 6.0f));

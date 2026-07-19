@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "blackgoldalliance:black_gold_shaman_staff"
+    "blackgoldalliance:black_gold_shaman_staff",
+    "blackgoldalliance:deterrent_expansion_tablet",
+    "blackgoldalliance:deterrent_intensification_tablet",
+    "blackgoldalliance:marshal_emblem"
   ]
 }

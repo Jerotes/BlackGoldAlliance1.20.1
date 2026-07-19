@@ -20,7 +20,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -243,8 +243,7 @@ public class NetherSiphonLinkStationEntity extends RandomizableContainerBlockEnt
 				if (level instanceof ServerLevel serverLevel) {
 					serverLevel.sendParticles(BGAParticleTypes.NETHER_SIPHON_LINK_STATION.get(), blockPos.getX() + 0.5f, blockPos.getY() + 0.1f, blockPos.getZ() + 0.5f, 0, 0, 0, 0, 0);
 					BlockPos belowPos = blockPos.below();
-					BlockEntity belowEntity = level.getBlockEntity(belowPos);
-					Container container = belowEntity instanceof Container ? (Container) belowEntity : null;
+					Container container = HopperBlockEntity.getContainerAt(level, belowPos);
 
 					for (ItemStack drop : level.getServer().getLootData()
 							.getLootTable(new ResourceLocation(netherSiphonLinkStationEntity.giftItem))

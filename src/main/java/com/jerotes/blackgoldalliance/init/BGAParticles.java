@@ -1,6 +1,5 @@
 package com.jerotes.blackgoldalliance.init;
 
-import com.jerotes.blackgoldalliance.client.particle.*;
 import com.jerotes.jerotes.client.particle.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;

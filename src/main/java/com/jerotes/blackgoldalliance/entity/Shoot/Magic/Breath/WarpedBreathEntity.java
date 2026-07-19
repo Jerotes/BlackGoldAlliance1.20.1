@@ -55,12 +55,16 @@ public class WarpedBreathEntity extends BaseBreathEntity {
         Entity entity = entityHitResult.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             DamageSource damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.POISON, this, this.getOwner());
-            boolean bl = livingEntity.hurt(damageSource, spellLevelDamage * Main.randomReach(RandomSource.create(), 1, 6) + 6);
+            boolean bl = livingEntity.hurt(damageSource,
+                    Main.rollDice(spellLevelDamage, Main.randomReach(RandomSource.create(), 1, 6), this.random) + 6
+            );
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.DEADLY_POISON.get(), 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
             }
             else {
-                livingEntity.hurt(this.damageSources().indirectMagic(this, this.getOwner()), spellLevelDamage * Main.randomReach(RandomSource.create(), 1, 6) + 6);
+                livingEntity.hurt(this.damageSources().indirectMagic(this, this.getOwner()),
+                        Main.rollDice(spellLevelDamage, Main.randomReach(RandomSource.create(), 1, 6), this.random) + 6
+                );
             }
         }
     }

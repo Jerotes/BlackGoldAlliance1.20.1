@@ -4,10 +4,13 @@ import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.jerotes.init.JerotesRenderType;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.function.BiFunction;
 
 @OnlyIn(Dist.CLIENT)
 public class BGARenderType extends JerotesRenderType {
@@ -33,6 +36,38 @@ public class BGARenderType extends JerotesRenderType {
 
 	public static RenderType marshalArmorGlint() {
 		return MARSHAL_ARMOR_GLINT;
+	}
+
+	private static final BiFunction<ResourceLocation, TransparencyStateShard, RenderType> BGA_GLOW_DOUBLE_SIDED =
+			Util.memoize((resourceLocation, transparencyStateShard) -> {
+				TextureStateShard textureStateShard = new TextureStateShard(resourceLocation, false, false);
+				return RenderType.create(
+						"glow_double_sided",
+						DefaultVertexFormat.NEW_ENTITY,
+						VertexFormat.Mode.QUADS,
+						1536,
+						false,
+						true,
+						CompositeState.builder()
+								.setShaderState(RENDERTYPE_EYES_SHADER)
+								.setTextureState(textureStateShard)
+								.setTransparencyState(transparencyStateShard)
+								.setWriteMaskState(COLOR_WRITE)
+								.setCullState(NO_CULL)
+								.setDepthTestState(LEQUAL_DEPTH_TEST)
+								.setOutputState(TRANSLUCENT_TARGET)
+								.createCompositeState(false)
+				);
+			});
+
+	public static RenderType bgaGlowDoubleSided(ResourceLocation resourceLocation) {
+		return BGA_GLOW_DOUBLE_SIDED.apply(resourceLocation, ADDITIVE_TRANSPARENCY);
+	}
+	public static RenderType bgaGlowDoubleSidedTranslucent(ResourceLocation resourceLocation) {
+		return BGA_GLOW_DOUBLE_SIDED.apply(resourceLocation, TRANSLUCENT_TRANSPARENCY);
+	}
+	public static RenderType bgaGlowDoubleSidedNoTransparency(ResourceLocation resourceLocation) {
+		return BGA_GLOW_DOUBLE_SIDED.apply(resourceLocation, NO_TRANSPARENCY);
 	}
 }
 

@@ -162,7 +162,7 @@ public class BlackGoldShamanEntity extends BlackGoldPiglinEntity implements Elit
 
 
 	public boolean firstStart = true;
-	public int spellLevel = 3;
+	public int spellLevel = 4;
 	@Override
 	public int getSpellLevel() {
 		return this.spellLevel;

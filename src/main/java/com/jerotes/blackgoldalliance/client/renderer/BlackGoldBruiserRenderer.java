@@ -4,7 +4,7 @@ import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.client.layer.GlowOtherBodyLayer;
 import com.jerotes.blackgoldalliance.client.model.Modelblack_gold_bruiser;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldBruiserEntity;
-import com.jerotes.jerotes.init.JerotesRenderType;
+import com.jerotes.blackgoldalliance.init.BGARenderType;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -90,7 +90,7 @@ public class BlackGoldBruiserRenderer extends MobRenderer<BlackGoldBruiserEntity
 	}
 
 	private static final ResourceLocation BEAM_LOCATION = new ResourceLocation(BGA.MODID, "textures/entity/piglin/black_gold_bruiser/black_gold_bruiser_dead_beam.png");
-	private static final RenderType BEAM = JerotesRenderType.glowDoubleSided(BEAM_LOCATION);
+	private static final RenderType BEAM = BGARenderType.bgaGlowDoubleSided(BEAM_LOCATION);
 
 	public static void renderLightLock(float f, float f2, float f3, float f4, int n, PoseStack poseStack, MultiBufferSource multiBufferSource, int n2) {
 		float f5 = Mth.sqrt(f * f + f3 * f3);

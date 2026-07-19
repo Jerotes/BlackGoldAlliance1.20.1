@@ -2,6 +2,7 @@ package com.jerotes.blackgoldalliance.entity.Boss;
 
 import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
+import com.jerotes.jerotes.entity.Interface.LoreUndyingEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import java.util.Optional;
 import java.util.UUID;
 
-public abstract class BlackGoldPiglinBossBaseEntity extends BlackGoldPiglinEntity {
+public abstract class BlackGoldPiglinBossBaseEntity extends BlackGoldPiglinEntity implements LoreUndyingEntity {
 	//胜利
 	private static final EntityDataAccessor<Boolean> VICTORY = SynchedEntityData.defineId(BlackGoldPiglinBossBaseEntity.class, EntityDataSerializers.BOOLEAN);
 	//是否挑战
