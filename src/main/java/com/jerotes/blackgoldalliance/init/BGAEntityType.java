@@ -126,7 +126,7 @@ public class BGAEntityType {
 					.sized(1.6f, 1.6f));
 	public static final RegistryObject<EntityType<RayOfWarpedEntity>> RAY_OF_WARPED = register("ray_of_warped",
 			EntityType.Builder.<RayOfWarpedEntity>of(RayOfWarpedEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(4)
-					.sized(0.6f, 0.6f));
+					.sized(0.3125F, 0.3125F));
 	public static final RegistryObject<EntityType<WarpedBombEntity>> WARPED_BOMB = register("warped_bomb",
 			EntityType.Builder.<WarpedBombEntity>of(WarpedBombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(4)
 					.sized(0.6f, 0.6f));

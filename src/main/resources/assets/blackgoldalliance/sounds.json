@@ -325,8 +325,8 @@
     ]
   },
 
-  "magic_conjure_shamanic_zombie_pigman": {
-    "subtitle": "subtitle.blackgoldalliance.magic_conjure_shamanic_zombie_pigman",
+  "magic_conjure_shamanic_zombie_pigmans": {
+    "subtitle": "subtitle.blackgoldalliance.magic_conjure_shamanic_zombie_pigmans",
     "category": "neutral",
     "sounds": [
       {

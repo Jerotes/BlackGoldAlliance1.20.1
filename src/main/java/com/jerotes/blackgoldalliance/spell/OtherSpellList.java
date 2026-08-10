@@ -15,15 +15,18 @@ import java.util.List;
 
 public class OtherSpellList {
 	//召唤萨满制僵尸猪人
-	public static MagicSpell ConjureShamanicZombiePigman(int n, LivingEntity caster, Entity target) {
-		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "conjure_shamanic_zombie_pigman", BGAParticleTypes.CONJURE_SHAMANIC_ZOMBIE_PIGMAN_DISPLAY.get(), BGASoundEvents.MAGIC_CONJURE_SHAMANIC_ZOMBIE_PIGMAN){
+	public static MagicSpell ConjureShamanicZombiePigmans(int n, LivingEntity caster, Entity target) {
+		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "conjure_shamanic_zombie_pigmans", BGAParticleTypes.CONJURE_SHAMANIC_ZOMBIE_PIGMANS_DISPLAY.get(), BGASoundEvents.MAGIC_CONJURE_SHAMANIC_ZOMBIE_PIGMANS){
 			public boolean spellFindUse() {
-				return OtherSpellFind.ConjureShamanicZombiePigman(getCaster(), (Math.max(3, getSpellLevel() / 2)), (Math.max(3, getSpellLevel())), 16);
+				List<ZombiePigmanEntity> list = getCaster().level().getEntitiesOfClass(ZombiePigmanEntity.class, getCaster().getBoundingBox().inflate(128, 128, 128));
+				list.removeIf(summon -> summon.getOwner() != getCaster());
+				list.removeIf(summon -> !summon.isNotPersistent());
+				return OtherSpellFind.ConjureShamanicZombiePigmans(getCaster(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 16);
 			}
 			public String getSpellModId() {
 				return BGA.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 4;
 			}
 			public float getSpellDistanceBase() {
@@ -33,7 +36,8 @@ public class OtherSpellList {
 				if (getCaster() != null) {
 					List<ZombiePigmanEntity> list = getCaster().level().getEntitiesOfClass(ZombiePigmanEntity.class, getCaster().getBoundingBox().inflate(32.0, 32.0, 32.0));
 					list.removeIf(summon -> summon.getOwner() != getCaster());
-					return super.canUse() && list.size() <= getSpellLevel() * 3;
+					list.removeIf(summon -> !summon.isNotPersistent());
+					return super.canUse() && list.size() < 5 + (getSpellLevel() - 3) * 2;
 				}
 				return super.canUse();
 			}
@@ -51,7 +55,7 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return BGA.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 3;
 			}
 			public SpellSchool getSpellSchool() {
@@ -68,7 +72,7 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return BGA.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 3;
 			}
 			public float getSpellDistanceBase() {
@@ -88,7 +92,7 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return BGA.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 2;
 			}
 			public float getSpellDistanceBase() {

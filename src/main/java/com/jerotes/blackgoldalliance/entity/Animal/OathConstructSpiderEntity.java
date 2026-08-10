@@ -4,7 +4,6 @@ import com.jerotes.blackgoldalliance.entity.WitherSkeleton.OathWitherSquireEntit
 import com.jerotes.jerotes.entity.Interface.*;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.*;
-import com.jerotes.jerotes.init.JerotesDamageTypes;
 import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.item.Interface.ItemBeastArmor;
@@ -1279,17 +1278,17 @@ public class OathConstructSpiderEntity extends Animal implements JerotesEntity, 
 				|| damageSource.is(DamageTypes.SWEET_BERRY_BUSH)
 				|| damageSource.is(DamageTypes.THORNS)
 				|| damageSource.is(DamageTypeTags.IS_FALL)
-				|| damageSource.is(DamageTypeTags.IS_DROWNING)
 				|| damageSource.is(DamageTypes.DRY_OUT)
-				|| damageSource.is(DamageTypeTags.IS_FIRE)
-				|| damageSource.is(DamageTypeTags.IS_LIGHTNING)
+				|| AttackFind.isFireDamage(damageSource)
+				|| AttackFind.isLightningDamage(damageSource)
+				|| AttackFind.isWaterDamage(damageSource)
 				|| damageSource.is(DamageTypes.IN_WALL)
-				|| damageSource.is(DamageTypes.WITHER)
-				|| damageSource.is(DamageTypes.WITHER_SKULL)
+				|| AttackFind.isWitherDamage(damageSource)
 				|| damageSource.is(DamageTypes.FALLING_BLOCK)
 				|| damageSource.is(DamageTypes.FALLING_ANVIL)
 				|| damageSource.is(DamageTypes.FALLING_STALACTITE)
-				|| damageSource.is(JerotesDamageTypes.POISON))
+				|| AttackFind.isPoisonDamage(damageSource)
+				|| AttackFind.isPsychicDamage(damageSource))
 			return true;
 		return super.isInvulnerableTo(damageSource);
 	}

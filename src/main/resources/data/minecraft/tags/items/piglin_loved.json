@@ -11,7 +11,11 @@
     "blackgoldalliance:black_gold_warhammer",
     "blackgoldalliance:black_gold_cog_crossbow",
     "blackgoldalliance:black_gold_lance",
+    "blackgoldalliance:black_gold_pike",
+    "blackgoldalliance:black_gold_scutum",
     "blackgoldalliance:black_gold_chainsaw",
+    "blackgoldalliance:the_black_gold_marshal_greatsword",
+    "blackgoldalliance:black_gold_shaman_staff",
 
     "blackgoldalliance:black_gold_runt_helmet",
     "blackgoldalliance:black_gold_runt_chestplate",
@@ -37,7 +41,6 @@
     "blackgoldalliance:the_black_gold_marshal_helmet",
     "blackgoldalliance:the_black_gold_marshal_chestplate",
     "blackgoldalliance:the_black_gold_marshal_leggings",
-    "blackgoldalliance:the_black_gold_marshal_boots",
-    "blackgoldalliance:the_black_gold_marshal_greatsword"
+    "blackgoldalliance:the_black_gold_marshal_boots"
   ]
 }

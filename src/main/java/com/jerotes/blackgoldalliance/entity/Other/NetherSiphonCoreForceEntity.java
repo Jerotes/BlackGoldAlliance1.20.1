@@ -5,6 +5,7 @@ import com.jerotes.blackgoldalliance.block.NetherSiphonCoreEntity;
 import com.jerotes.blackgoldalliance.entity.Part.NetherSiphonCoreForcePart;
 import com.jerotes.jerotes.control.NoRotationControl;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
+import com.jerotes.jerotes.util.AttackFind;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -418,11 +419,13 @@ public class NetherSiphonCoreForceEntity extends Mob implements JerotesEntity, T
 				|| damageSource.is(DamageTypes.THORNS)
 				|| damageSource.is(DamageTypeTags.IS_FALL)
 				|| damageSource.is(DamageTypes.CRAMMING)
-				|| damageSource.is(DamageTypeTags.IS_DROWNING)
 				|| damageSource.is(DamageTypes.DRY_OUT)
-				|| damageSource.is(DamageTypeTags.IS_FIRE)
-				|| damageSource.is(DamageTypeTags.IS_LIGHTNING)
-				|| damageSource.is(DamageTypeTags.IS_FREEZING)
+				|| AttackFind.isFireDamage(damageSource)
+				|| AttackFind.isLightningDamage(damageSource)
+				|| AttackFind.isFreezeDamage(damageSource)
+				|| AttackFind.isWaterDamage(damageSource)
+				|| AttackFind.isPoisonDamage(damageSource)
+				|| AttackFind.isPsychicDamage(damageSource)
 				|| damageSource.is(DamageTypes.IN_WALL)
 				|| damageSource.is(DamageTypes.WITHER)
 				|| damageSource.is(DamageTypes.WITHER_SKULL)

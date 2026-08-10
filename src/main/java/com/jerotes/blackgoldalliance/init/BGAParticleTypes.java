@@ -16,7 +16,7 @@ public class BGAParticleTypes {
 	public static final RegistryObject<SimpleParticleType> NETHER_SIPHON_LINK_STATION = REGISTRY.register("nether_siphon_link_station", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> MARSHAL_SHOCK = REGISTRY.register("marshal_shock", () -> new SimpleParticleType(true));
 
-	public static final RegistryObject<SimpleParticleType> CONJURE_SHAMANIC_ZOMBIE_PIGMAN_DISPLAY = REGISTRY.register("conjure_shamanic_zombie_pigman_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> CONJURE_SHAMANIC_ZOMBIE_PIGMANS_DISPLAY = REGISTRY.register("conjure_shamanic_zombie_pigmans_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> EXORCISM_STOMP_DISPLAY = REGISTRY.register("exorcism_stomp_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> RAPID_IMPACT_DISPLAY = REGISTRY.register("rapid_impact_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> WARPED_BREATH_DISPLAY = REGISTRY.register("warped_breath_display", () -> new SimpleParticleType(true));

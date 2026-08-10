@@ -52,8 +52,8 @@ public class BlackGoldShamanStaff extends Item implements Vanishable, MagicItem 
 		}
 		livingEntity.swing(InteractionHand.MAIN_HAND, true);
 		//法术列表-诡异射线
-		OtherSpellList.RayofWarped(3, livingEntity, null).spellUse();
-		if (livingEntity instanceof Player player) {
+		boolean spellUse = OtherSpellList.RayofWarped(3, livingEntity, null).spellUse();
+		if (livingEntity instanceof Player player && spellUse) {
 			damageMagicItem(player, itemStack);
 			if (!player.getAbilities().instabuild) {
 				player.getCooldowns().addCooldown(this, 120);
@@ -72,6 +72,12 @@ public class BlackGoldShamanStaff extends Item implements Vanishable, MagicItem 
 		}
 	}
 
+	public boolean hasSpellMagicItem() {
+		return true;
+	}
+	public String getSpellIdMagicItem(ItemStack itemStack) {
+		return "blackgoldalliance_ray_of_warped";
+	}
 	@Override
 	public UseAnim getUseAnimation(ItemStack itemStack) {
 		return UseAnim.BOW;
@@ -86,7 +92,7 @@ public class BlackGoldShamanStaff extends Item implements Vanishable, MagicItem 
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
 		super.appendHoverText(itemStack, level, list, tooltipFlag);
-		MagicSpell.MagicTooltip(list, OtherSpellList.RayofWarped(3, null, null), trueLevel(itemStack));
+		MagicSpell.MagicTooltip(list, OtherSpellList.RayofWarped(3, null, null), trueLevel(itemStack), null, itemStack);
 	}
 
 	public int trueLevel(ItemStack itemStack) {
@@ -95,31 +101,31 @@ public class BlackGoldShamanStaff extends Item implements Vanishable, MagicItem 
 
 
 	@Override
-	public List<SpellTypeInterface> getMainSpellType(ItemStack itemStack) {
+	public List<SpellTypeInterface> getMainSpellTypeMagicItem(ItemStack itemStack) {
 		List<SpellTypeInterface> spellList = new ArrayList<>();
 		spellList.add(OtherSpellType.BLACKGOLDALLIANCE_RAY_OF_WARPED);
 		return spellList;
 	}
 	@Override
-	public List<SpellTypeInterface> getAddSpellType(ItemStack itemStack) {
+	public List<SpellTypeInterface> getAddSpellTypeMagicItem(ItemStack itemStack) {
 		return new ArrayList<>();
 	}
 
 	@Override
-	public int getSpellLevel(ItemStack itemStack) {
+	public int getSpellLevelMagicItem(ItemStack itemStack) {
 		return 3;
 	}
 
 	@Override
-	public boolean isMelee(ItemStack itemStack) {
+	public boolean isMeleeMagicItem(ItemStack itemStack) {
 		return false;
 	}
 	@Override
-	public boolean isHelp(ItemStack itemStack) {
+	public boolean isHelpMagicItem(ItemStack itemStack) {
 		return false;
 	}
 	@Override
-	public float getSpellDistance(ItemStack itemStack) {
+	public float getSpellDistanceMagicItem(ItemStack itemStack) {
 		return OtherSpellList.RayofWarped(3, null, null).getSpellDistance();
 	}
 }

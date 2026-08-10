@@ -1333,7 +1333,7 @@ public class BlackGoldStepperEntity extends Strider implements JerotesEntity, Fa
 	public boolean isInvulnerableTo(DamageSource damageSource) {
 		if (damageSource.is(DamageTypes.CACTUS)
 				|| damageSource.is(DamageTypes.SWEET_BERRY_BUSH)
-				|| damageSource.is(DamageTypeTags.IS_FIRE))
+				|| AttackFind.isFireDamage(damageSource))
 			return true;
 		return super.isInvulnerableTo(damageSource);
 	}
@@ -1344,7 +1344,7 @@ public class BlackGoldStepperEntity extends Strider implements JerotesEntity, Fa
 		}
 		if (damageSource.is(DamageTypeTags.IS_EXPLOSION))
 			amount /= 3;
-		else if (damageSource.is(DamageTypes.WITHER) || damageSource.is(DamageTypes.WITHER_SKULL))
+		else if (AttackFind.isWitherDamage(damageSource))
 			amount /= 3;
 		boolean bl = super.hurt(damageSource, amount);
 		if (bl) {

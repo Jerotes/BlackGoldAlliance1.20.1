@@ -11,6 +11,7 @@ import com.jerotes.jerotes.item.Interface.JerotesItemThrownJavelinUse;
 import com.jerotes.jerotes.item.Tool.ItemToolBaseCrossbow;
 import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
+import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import net.minecraft.ChatFormatting;
@@ -989,9 +990,8 @@ public class OathWitherSkeletonEntity extends WitherSkeleton implements SpellUse
 	public boolean isInvulnerableTo(DamageSource damageSource) {
 		if (damageSource.is(DamageTypes.CACTUS)
 				|| damageSource.is(DamageTypes.SWEET_BERRY_BUSH)
-				|| damageSource.is(DamageTypeTags.IS_FIRE)
-				|| damageSource.is(DamageTypes.WITHER)
-				|| damageSource.is(DamageTypes.WITHER_SKULL))
+				|| AttackFind.isFireDamage(damageSource)
+				|| AttackFind.isWitherDamage(damageSource))
 			return true;
 		return super.isInvulnerableTo(damageSource);
 	}

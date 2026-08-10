@@ -16,7 +16,6 @@ import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.spell.SpellList;
 import com.jerotes.jerotes.spell.SpellType;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
-import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import net.minecraft.nbt.CompoundTag;
@@ -292,13 +291,13 @@ public class BlackGoldShamanEntity extends BlackGoldPiglinEntity implements Elit
 			if (list.size() <= getSpellLevel() * 3) {
 				for (int i = 0; i < 6; ++i) {
 					//技能列表-召唤萨满制僵尸猪人
-					spellList.add(OtherSpellType.BLACKGOLDALLIANCE_CONJURE_SHAMANIC_ZOMBIE_PIGMAN);
+					spellList.add(OtherSpellType.BLACKGOLDALLIANCE_CONJURE_SHAMANIC_ZOMBIE_PIGMANS);
 				}
 				return spellList;
 			}
 		}
 		//技能列表-召唤萨满制僵尸猪人
-		spellList.add(OtherSpellType.BLACKGOLDALLIANCE_CONJURE_SHAMANIC_ZOMBIE_PIGMAN);
+		spellList.add(OtherSpellType.BLACKGOLDALLIANCE_CONJURE_SHAMANIC_ZOMBIE_PIGMANS);
 		//技能列表-诡异吐息
 		spellList.add(OtherSpellType.BLACKGOLDALLIANCE_WARPED_BREATH);
 		//技能列表-诡异射线
@@ -363,8 +362,8 @@ public class BlackGoldShamanEntity extends BlackGoldPiglinEntity implements Elit
 				return false;
 			}
 		}
-		if (!this.isNoAi() && damagesource.getEntity() == null && (damagesource.is(DamageTypeTags.IS_FIRE) ||
-				damagesource.is(DamageTypeTags.IS_DROWNING))) {
+		if (!this.isNoAi() && damagesource.getEntity() == null && (damagesource.is(DamageTypes.IN_FIRE) ||
+				damagesource.is(DamageTypes.DROWN))) {
 			if (amount < this.getHealth() * 10){
 				//技能列表-迷踪步
 				boolean bl = SpellList.MistyStep(getSpellLevel(), this, this).canUse();

@@ -1,7 +1,7 @@
 package com.jerotes.blackgoldalliance.client.model;
 
 import com.jerotes.blackgoldalliance.BGA;
-import com.jerotes.blackgoldalliance.entity.MagicSummoned.MagicSummonedEntity;
+import com.jerotes.blackgoldalliance.entity.MagicSummoned.ZombiePigman.ZombiePigmanEntity;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -10,7 +10,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class Modelzombie_pigman<T extends MagicSummonedEntity> extends HumanoidModel<T> {
+public class Modelzombie_pigman<T extends ZombiePigmanEntity> extends HumanoidModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BGA.MODID, "zombie_pigman"), "main");
 	public Modelzombie_pigman(ModelPart p_170337_) {
 		super(p_170337_);

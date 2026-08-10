@@ -1229,9 +1229,9 @@ public class BlackGoldPiglinEntity extends AbstractPiglin implements CrossbowAtt
 		if (isInvulnerableTo(damagesource)) {
 			return super.hurt(damagesource, amount);
 		}
-		if (damagesource.is(DamageTypeTags.IS_FIRE) || damagesource.is(DamageTypeTags.IS_EXPLOSION))
+		if (AttackFind.isFireDamage(damagesource) || damagesource.is(DamageTypeTags.IS_EXPLOSION))
 			return super.hurt(damagesource, amount / 2);
-		if (damagesource.is(DamageTypes.WITHER) || damagesource.is(DamageTypes.WITHER_SKULL))
+		if (AttackFind.isWitherDamage(damagesource))
 			return super.hurt(damagesource, amount / 5);
 		return super.hurt(damagesource, amount);
 	}

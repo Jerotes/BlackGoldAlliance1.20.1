@@ -5,6 +5,8 @@ import com.google.common.collect.Iterables;
 import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.client.animation.BlackGoldPiglinHunterAnimation;
 import com.jerotes.blackgoldalliance.client.animation.TheBlackGoldMarshalAnimation;
+import com.jerotes.blackgoldalliance.client.animation.TheBlackGoldMarshalOtherIAnimation;
+import com.jerotes.blackgoldalliance.client.animation.TheBlackGoldMarshalOtherIIAnimation;
 import com.jerotes.blackgoldalliance.entity.Boss.TheBlackGoldMarshalEntity;
 import com.jerotes.blackgoldalliance.init.BGAItems;
 import com.jerotes.jerotes.client.model.Modelspecial_action;
@@ -94,85 +96,21 @@ public class Modelthe_black_gold_marshal<T extends TheBlackGoldMarshalEntity> ex
 		partdefinition.addOrReplaceChild("left_pants", CubeListBuilder.create(), PartPose.ZERO);
 		partdefinition.addOrReplaceChild("right_pants", CubeListBuilder.create(), PartPose.ZERO);
 
-		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(2, 64).addBox(-3.0F, -2.0F, -5.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
-				.texOffs(0, 64).addBox(-5.0F, -8.0F, -4.0F, 10.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-				.texOffs(64, 64).addBox(-5.0F, -8.0F, -4.0F, 10.0F, 8.0F, 8.0F, new CubeDeformation(0.25F))
-				.texOffs(31, 65).addBox(-2.0F, -4.0F, -5.0F, 4.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
-				.texOffs(100, 76).addBox(-3.0F, -3.0F, -5.0F, 6.0F, 3.0F, 1.0F, new CubeDeformation(0.255F))
-				.texOffs(2, 68).addBox(2.0F, -2.0F, -5.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 96).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
+				.texOffs(64, 80).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.351F))
+				.texOffs(0, 80).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.9F, 12.0F, 0.0F));
 
-		PartDefinition right_ear = head.addOrReplaceChild("right_ear", CubeListBuilder.create().texOffs(39, 70).addBox(-1.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.5F, -6.0F, 0.0F, 0.0F, 0.0F, 0.4363F));
+		PartDefinition right_boots = right_leg.addOrReplaceChild("right_boots", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.751F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition right_ear_helmet = right_ear.addOrReplaceChild("right_ear_helmet", CubeListBuilder.create().texOffs(144, 0).addBox(-1.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition right_leggings = right_leg.addOrReplaceChild("right_leggings", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.51F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition left_ear = head.addOrReplaceChild("left_ear", CubeListBuilder.create().texOffs(51, 70).addBox(0.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.5F, -6.0F, 0.0F, 0.0F, 0.0F, -0.4363F));
+		PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
+				.texOffs(80, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F))
+				.texOffs(16, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(1.9F, 12.0F, 0.0F));
 
-		PartDefinition left_ear_helmet = left_ear.addOrReplaceChild("left_ear_helmet", CubeListBuilder.create().texOffs(144, 0).addBox(0.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition left_boots = left_leg.addOrReplaceChild("left_boots", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition helmet = head.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.5F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(1.3F))
-				.texOffs(32, 0).addBox(-4.0F, -8.5F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(1.5F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition head_r1 = helmet.addOrReplaceChild("head_r1", CubeListBuilder.create().texOffs(24, 0).addBox(-4.0F, -2.0F, 0.0F, 8.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -11.5F, 5.5F, -0.3927F, 0.0F, 0.0F));
-
-		PartDefinition mouth2 = helmet.addOrReplaceChild("mouth2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.1542F, -2.85F, -3.8322F, -0.3927F, 0.0F, 0.0F));
-
-		PartDefinition head_r2 = mouth2.addOrReplaceChild("head_r2", CubeListBuilder.create().texOffs(77, 11).addBox(-4.0443F, -2.6907F, -4.0406F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(-0.3542F, 0.0F, 3.5322F, 0.0F, -0.829F, 0.0F));
-
-		PartDefinition mouth = helmet.addOrReplaceChild("mouth", CubeListBuilder.create(), PartPose.offsetAndRotation(0.1542F, -1.15F, -4.9322F, 0.2182F, 0.0F, 0.0F));
-
-		PartDefinition head_r3 = mouth.addOrReplaceChild("head_r3", CubeListBuilder.create().texOffs(56, 0).addBox(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(-0.2F, -0.1879F, 0.0684F, 0.0F, -0.829F, 0.0F));
-
-		PartDefinition horn = helmet.addOrReplaceChild("horn", CubeListBuilder.create(), PartPose.offset(6.2391F, -10.0637F, 0.4449F));
-
-		PartDefinition horn_r1 = horn.addOrReplaceChild("horn_r1", CubeListBuilder.create().texOffs(64, 11).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-11.9891F, 3.3137F, -0.1949F, 0.1309F, -0.1745F, -0.0698F));
-
-		PartDefinition horn_r2 = horn.addOrReplaceChild("horn_r2", CubeListBuilder.create().texOffs(64, 11).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.4891F, 3.3137F, -0.1949F, 0.1309F, 0.1745F, 0.0698F));
-
-		PartDefinition horn_r3 = horn.addOrReplaceChild("horn_r3", CubeListBuilder.create().texOffs(78, 0).addBox(-1.5F, -3.5F, 2.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
-				.texOffs(154, 0).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.25F))
-				.texOffs(64, 0).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-12.4891F, -0.6863F, -1.4449F, 0.8874F, -0.6977F, 0.001F));
-
-		PartDefinition horn_r4 = horn.addOrReplaceChild("horn_r4", CubeListBuilder.create().texOffs(64, 0).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
-				.texOffs(154, 0).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.25F)).mirror(false)
-				.texOffs(78, 0).mirror().addBox(-1.5F, -3.5F, 2.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0109F, -0.6863F, -1.4449F, 0.8874F, 0.6977F, -0.001F));
-
-		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 80).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
-				.texOffs(16, 80).addBox(-4.0F, -2.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(-0.25F))
-				.texOffs(16, 96).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.255F))
-				.texOffs(80, 80).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.275F))
-				.texOffs(80, 80).addBox(-4.0F, -2.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(-0.075F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition chestplate = body.addOrReplaceChild("chestplate", CubeListBuilder.create().texOffs(16, 32).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.5F))
-				.texOffs(128, 15).addBox(-5.0F, 8.0F, -4.0F, 10.0F, 1.0F, 7.0F, new CubeDeformation(0.15F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition cloak = chestplate.addOrReplaceChild("cloak", CubeListBuilder.create().texOffs(184, 0).addBox(-4.9F, -0.2867F, -2.3745F, 12.0F, 25.0F, 4.0F, new CubeDeformation(0.0F))
-				.texOffs(112, 8).addBox(2.5F, 0.139F, -1.9829F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.0F)), PartPose.offsetAndRotation(3.0F, -2.0F, 2.0F, 0.1309F, 0.0F, 0.0F));
-
-		PartDefinition jacket = chestplate.addOrReplaceChild("jacket", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition jacket_r1 = jacket.addOrReplaceChild("jacket_r1", CubeListBuilder.create().texOffs(64, 20).addBox(-4.0F, -3.5F, -2.0F, 8.0F, 7.0F, 4.0F, new CubeDeformation(1.105F)), PartPose.offsetAndRotation(0.0F, 2.7524F, -0.859F, 0.0873F, 0.0F, 0.0F));
-
-		PartDefinition leggings = body.addOrReplaceChild("leggings", CubeListBuilder.create().texOffs(112, 16).addBox(-4.0F, -0.1F, -3.4F, 8.0F, 10.0F, 0.0F, new CubeDeformation(0.0F))
-				.texOffs(112, 16).addBox(-4.0F, -0.1F, 3.1F, 8.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 8.0F, 0.0F));
-
-		PartDefinition jacket_r2 = leggings.addOrReplaceChild("jacket_r2", CubeListBuilder.create().texOffs(96, 16).mirror().addBox(-3.0F, -2.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(1.0F)).mirror(false), PartPose.offsetAndRotation(3.5F, 3.0F, 0.0F, 0.0F, 0.0F, -0.2182F));
-
-		PartDefinition jacket_r3 = leggings.addOrReplaceChild("jacket_r3", CubeListBuilder.create().texOffs(96, 16).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(1.0F)), PartPose.offsetAndRotation(-3.5F, 3.0F, 0.0F, 0.0F, 0.0F, 0.2182F));
-
-		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(48, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
-				.texOffs(96, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F))
-				.texOffs(32, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 2.0F, 0.0F));
-
-		PartDefinition left_armor = left_arm.addOrReplaceChild("left_armor", CubeListBuilder.create().texOffs(32, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.775F))
-				.texOffs(48, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(1.2F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition left_arm_r1 = left_armor.addOrReplaceChild("left_arm_r1", CubeListBuilder.create().texOffs(128, 0).addBox(-0.4272F, -4.0F, -3.5F, 1.0F, 8.0F, 7.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.9272F, -0.4395F, 0.0F, 0.0F, 0.0F, -0.1745F));
-
-		PartDefinition left_arm_r2 = left_armor.addOrReplaceChild("left_arm_r2", CubeListBuilder.create().texOffs(112, 0).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.25F)), PartPose.offsetAndRotation(0.5F, 0.0F, 0.0F, 0.0F, 0.0F, -0.1745F));
-
-		PartDefinition left_arm_r3 = left_armor.addOrReplaceChild("left_arm_r3", CubeListBuilder.create().texOffs(112, 8).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.15F)), PartPose.offsetAndRotation(1.4848F, -1.4236F, 0.0F, 0.0F, 0.0F, 0.2182F));
-
-		PartDefinition left_weapon = left_arm.addOrReplaceChild("left_weapon", CubeListBuilder.create(), PartPose.offset(2.0F, 8.0F, 0.0F));
+		PartDefinition left_leggings = left_leg.addOrReplaceChild("left_leggings", CubeListBuilder.create().texOffs(16, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.505F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(40, 80).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
 				.texOffs(40, 96).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
@@ -228,21 +166,85 @@ public class Modelthe_black_gold_marshal<T extends TheBlackGoldMarshalEntity> ex
 
 		PartDefinition sword_r11 = rod.addOrReplaceChild("sword_r11", CubeListBuilder.create().texOffs(198, 40).addBox(-1.5F, -1.0F, -1.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.25F)), PartPose.offsetAndRotation(0.0F, 3.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
 
-		PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
-				.texOffs(80, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F))
-				.texOffs(16, 112).addBox(-1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(1.9F, 12.0F, 0.0F));
+		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(48, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
+				.texOffs(96, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F))
+				.texOffs(32, 112).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 2.0F, 0.0F));
 
-		PartDefinition left_boots = left_leg.addOrReplaceChild("left_boots", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition left_armor = left_arm.addOrReplaceChild("left_armor", CubeListBuilder.create().texOffs(32, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.775F))
+				.texOffs(48, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(1.2F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition left_leggings = left_leg.addOrReplaceChild("left_leggings", CubeListBuilder.create().texOffs(16, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.505F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition left_arm_r1 = left_armor.addOrReplaceChild("left_arm_r1", CubeListBuilder.create().texOffs(128, 0).addBox(-0.4272F, -4.0F, -3.5F, 1.0F, 8.0F, 7.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.9272F, -0.4395F, 0.0F, 0.0F, 0.0F, -0.1745F));
 
-		PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 96).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F))
-				.texOffs(64, 80).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.351F))
-				.texOffs(0, 80).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.9F, 12.0F, 0.0F));
+		PartDefinition left_arm_r2 = left_armor.addOrReplaceChild("left_arm_r2", CubeListBuilder.create().texOffs(112, 0).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.25F)), PartPose.offsetAndRotation(0.5F, 0.0F, 0.0F, 0.0F, 0.0F, -0.1745F));
 
-		PartDefinition right_boots = right_leg.addOrReplaceChild("right_boots", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.751F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition left_arm_r3 = left_armor.addOrReplaceChild("left_arm_r3", CubeListBuilder.create().texOffs(112, 8).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.15F)), PartPose.offsetAndRotation(1.4848F, -1.4236F, 0.0F, 0.0F, 0.0F, 0.2182F));
 
-		PartDefinition right_leggings = right_leg.addOrReplaceChild("right_leggings", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.51F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition left_weapon = left_arm.addOrReplaceChild("left_weapon", CubeListBuilder.create(), PartPose.offset(2.0F, 8.0F, 0.0F));
+
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 80).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(16, 80).addBox(-4.0F, -2.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(-0.25F))
+				.texOffs(16, 96).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.255F))
+				.texOffs(80, 80).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.275F))
+				.texOffs(80, 80).addBox(-4.0F, -2.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(-0.075F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition chestplate = body.addOrReplaceChild("chestplate", CubeListBuilder.create().texOffs(16, 32).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.5F))
+				.texOffs(128, 15).addBox(-5.0F, 8.0F, -4.0F, 10.0F, 1.0F, 7.0F, new CubeDeformation(0.15F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition cloak = chestplate.addOrReplaceChild("cloak", CubeListBuilder.create().texOffs(184, 0).addBox(-4.9F, -0.2867F, -2.3745F, 12.0F, 25.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(112, 8).addBox(2.5F, 0.139F, -1.9829F, 4.0F, 4.0F, 4.0F, new CubeDeformation(1.0F)), PartPose.offsetAndRotation(3.0F, -2.0F, 2.0F, 0.1309F, 0.0F, 0.0F));
+
+		PartDefinition jacket = chestplate.addOrReplaceChild("jacket", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition jacket_r1 = jacket.addOrReplaceChild("jacket_r1", CubeListBuilder.create().texOffs(64, 20).addBox(-4.0F, -3.5F, -2.0F, 8.0F, 7.0F, 4.0F, new CubeDeformation(1.105F)), PartPose.offsetAndRotation(0.0F, 2.7524F, -0.859F, 0.0873F, 0.0F, 0.0F));
+
+		PartDefinition leggings = body.addOrReplaceChild("leggings", CubeListBuilder.create().texOffs(112, 16).addBox(-4.0F, -0.1F, -3.4F, 8.0F, 10.0F, 0.0F, new CubeDeformation(0.0F))
+				.texOffs(112, 16).addBox(-4.0F, -0.1F, 3.1F, 8.0F, 10.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 8.0F, 0.0F));
+
+		PartDefinition jacket_r2 = leggings.addOrReplaceChild("jacket_r2", CubeListBuilder.create().texOffs(96, 16).mirror().addBox(-3.0F, -2.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(1.0F)).mirror(false), PartPose.offsetAndRotation(3.5F, 3.0F, 0.0F, 0.0F, 0.0F, -0.2182F));
+
+		PartDefinition jacket_r3 = leggings.addOrReplaceChild("jacket_r3", CubeListBuilder.create().texOffs(96, 16).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(1.0F)), PartPose.offsetAndRotation(-3.5F, 3.0F, 0.0F, 0.0F, 0.0F, 0.2182F));
+
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(2, 64).addBox(-3.0F, -2.0F, -5.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 64).addBox(-5.0F, -8.0F, -4.0F, 10.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+				.texOffs(64, 64).addBox(-5.0F, -8.0F, -4.0F, 10.0F, 8.0F, 8.0F, new CubeDeformation(0.25F))
+				.texOffs(31, 65).addBox(-2.0F, -4.0F, -5.0F, 4.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
+				.texOffs(100, 76).addBox(-3.0F, -3.0F, -5.0F, 6.0F, 3.0F, 1.0F, new CubeDeformation(0.255F))
+				.texOffs(2, 68).addBox(2.0F, -2.0F, -5.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition right_ear = head.addOrReplaceChild("right_ear", CubeListBuilder.create().texOffs(39, 70).addBox(-1.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.5F, -6.0F, 0.0F, 0.0F, 0.0F, 0.4363F));
+
+		PartDefinition right_ear_helmet = right_ear.addOrReplaceChild("right_ear_helmet", CubeListBuilder.create().texOffs(144, 0).addBox(-1.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition left_ear = head.addOrReplaceChild("left_ear", CubeListBuilder.create().texOffs(51, 70).addBox(0.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.5F, -6.0F, 0.0F, 0.0F, 0.0F, -0.4363F));
+
+		PartDefinition left_ear_helmet = left_ear.addOrReplaceChild("left_ear_helmet", CubeListBuilder.create().texOffs(144, 0).addBox(0.0F, 0.0F, -2.0F, 1.0F, 5.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition helmet = head.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.5F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(1.3F))
+				.texOffs(32, 0).addBox(-4.0F, -8.5F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(1.5F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition head_r1 = helmet.addOrReplaceChild("head_r1", CubeListBuilder.create().texOffs(24, 0).addBox(-4.0F, -2.0F, 0.0F, 8.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -11.5F, 5.5F, -0.3927F, 0.0F, 0.0F));
+
+		PartDefinition mouth2 = helmet.addOrReplaceChild("mouth2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.1542F, -2.85F, -3.8322F, -0.3927F, 0.0F, 0.0F));
+
+		PartDefinition head_r2 = mouth2.addOrReplaceChild("head_r2", CubeListBuilder.create().texOffs(77, 11).addBox(-4.0443F, -2.6907F, -4.0406F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(-0.3542F, 0.0F, 3.5322F, 0.0F, -0.829F, 0.0F));
+
+		PartDefinition mouth = helmet.addOrReplaceChild("mouth", CubeListBuilder.create(), PartPose.offsetAndRotation(0.1542F, -1.15F, -4.9322F, 0.2182F, 0.0F, 0.0F));
+
+		PartDefinition head_r3 = mouth.addOrReplaceChild("head_r3", CubeListBuilder.create().texOffs(56, 0).addBox(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(-0.2F, -0.1879F, 0.0684F, 0.0F, -0.829F, 0.0F));
+
+		PartDefinition horn = helmet.addOrReplaceChild("horn", CubeListBuilder.create(), PartPose.offset(6.2391F, -10.0637F, 0.4449F));
+
+		PartDefinition horn_r1 = horn.addOrReplaceChild("horn_r1", CubeListBuilder.create().texOffs(64, 11).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-11.9891F, 3.3137F, -0.1949F, 0.1309F, -0.1745F, -0.0698F));
+
+		PartDefinition horn_r2 = horn.addOrReplaceChild("horn_r2", CubeListBuilder.create().texOffs(64, 11).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.4891F, 3.3137F, -0.1949F, 0.1309F, 0.1745F, 0.0698F));
+
+		PartDefinition horn_r3 = horn.addOrReplaceChild("horn_r3", CubeListBuilder.create().texOffs(78, 0).addBox(-1.5F, -3.5F, 2.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
+				.texOffs(154, 0).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.25F))
+				.texOffs(64, 0).addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-12.4891F, -0.6863F, -1.4449F, 0.8874F, -0.6977F, 0.001F));
+
+		PartDefinition horn_r4 = horn.addOrReplaceChild("horn_r4", CubeListBuilder.create().texOffs(64, 0).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+				.texOffs(154, 0).mirror().addBox(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 8.0F, new CubeDeformation(0.25F)).mirror(false)
+				.texOffs(78, 0).mirror().addBox(-1.5F, -3.5F, 2.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0109F, -0.6863F, -1.4449F, 0.8874F, 0.6977F, -0.001F));
 
 		PartDefinition slash = partdefinition.addOrReplaceChild("slash", CubeListBuilder.create().texOffs(100, 96).addBox(-32.0F, 0.0F, 13.0F, 64.0F, 0.0F, 28.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 12.0F, 0.0F));
 
@@ -276,21 +278,21 @@ public class Modelthe_black_gold_marshal<T extends TheBlackGoldMarshalEntity> ex
 		if (InventoryEntity.isPike(t, t.getOffhandItem()))
 			Modelspecial_action.animate(this, TheBlackGoldMarshalAnimation.HANDLE_PIKE_LEFT, 0L, 1f, new Vector3f());
 		//攻击
-		this.animate(t.normalAttack1AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK1, f3);
-		this.animate(t.normalAttack2AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK2, f3);
-		this.animate(t.normalAttack3AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK3, f3);
-		this.animate(t.normalAttack4AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK4, f3);
-		this.animate(t.normalAttack5AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK5, f3);
-		this.animate(t.normalAttack6AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK6, f3);
-		this.animate(t.specialAttack1AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK1, f3);
-		this.animate(t.specialAttack2AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK2, f3);
-		this.animate(t.specialAttack3AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK3, f3);
-		this.animate(t.specialAttack4AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK4, f3);
-		this.animate(t.specialAttack5AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK5, f3);
-		this.animate(t.specialAttack6AnimationState, TheBlackGoldMarshalAnimation.SPECIAL_ATTACK6, f3);
-		this.animate(t.block1AnimationState, TheBlackGoldMarshalAnimation.BLOCK1, f3);
-		this.animate(t.block2AnimationState, TheBlackGoldMarshalAnimation.BLOCK2, f3);
-		this.animate(t.block3AnimationState, TheBlackGoldMarshalAnimation.BLOCK3, f3);
+		this.animate(t.normalAttack1AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK1_REWORK, f3);
+		this.animate(t.normalAttack2AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK2_REWORK, f3);
+		this.animate(t.normalAttack3AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK3_REWORK, f3);
+		this.animate(t.normalAttack4AnimationState, TheBlackGoldMarshalAnimation.NORMAL_ATTACK4_REWORK, f3);
+		this.animate(t.normalAttack5AnimationState, TheBlackGoldMarshalOtherIAnimation.NORMAL_ATTACK5_REWORK, f3);
+		this.animate(t.normalAttack6AnimationState, TheBlackGoldMarshalOtherIAnimation.NORMAL_ATTACK6_REWORK, f3);
+		this.animate(t.specialAttack1AnimationState, TheBlackGoldMarshalOtherIAnimation.SPECIAL_ATTACK1_REWORK, f3);
+		this.animate(t.specialAttack2AnimationState, TheBlackGoldMarshalOtherIAnimation.SPECIAL_ATTACK2_REWORK, f3);
+		this.animate(t.specialAttack3AnimationState, TheBlackGoldMarshalOtherIIAnimation.SPECIAL_ATTACK3_REWORK, f3);
+		this.animate(t.specialAttack4AnimationState, TheBlackGoldMarshalOtherIIAnimation.SPECIAL_ATTACK4_REWORK, f3);
+		this.animate(t.specialAttack5AnimationState, TheBlackGoldMarshalOtherIIAnimation.SPECIAL_ATTACK5, f3);
+		this.animate(t.specialAttack6AnimationState, TheBlackGoldMarshalOtherIIAnimation.SPECIAL_ATTACK6, f3);
+		this.animate(t.block1AnimationState, TheBlackGoldMarshalOtherIIAnimation.BLOCK1, f3);
+		this.animate(t.block2AnimationState, TheBlackGoldMarshalOtherIIAnimation.BLOCK2, f3);
+		this.animate(t.block3AnimationState, TheBlackGoldMarshalOtherIIAnimation.BLOCK3, f3);
 		this.animate(t.shootAnimationState, BlackGoldPiglinHunterAnimation.CROSSBOW_SHOOT_LEFT, f3);
 		this.animate(t.deadAnimationState, TheBlackGoldMarshalAnimation.DEAD, f3);
 

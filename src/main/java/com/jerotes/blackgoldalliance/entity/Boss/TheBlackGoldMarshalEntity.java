@@ -795,10 +795,10 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 					specialAttackChangeAttackUse();
 				}
 				else {
-					if (this.getAttackTick() == 20) {
+					if (this.getAttackTick() == 25) {
 						playSwingSound();
 					}
-					else if (this.getAttackTick() == 15) {
+					else if (this.getAttackTick() == 20) {
 						this.trueHurt();
 					}
 				}
@@ -1133,30 +1133,30 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 		int attackRandom = this.getRandom().nextInt(120);
 		if (this.getRandom().nextFloat() > 0.4f) {
 			if (!this.level().isClientSide()) {
-				this.setAnimTick(32);
+				this.setAnimTick(37);
 				this.setSpecialAttackUse(0);
 				if (attackRandom > 100) {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack1");
 					this.setAttackUse(1);
 				} else if (attackRandom > 80) {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack2");
 					this.setAttackUse(2);
 				} else if (attackRandom > 60) {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack3");
 					this.setAttackUse(3);
 				} else if (attackRandom > 40) {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack4");
 					this.setAttackUse(4);
 				} else if (attackRandom > 20) {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack5");
 					this.setAttackUse(5);
 				} else {
-					this.setAttackTick(30);
+					this.setAttackTick(35);
 					this.setAnimationState("normalAttack6");
 					this.setAttackUse(6);
 				}
@@ -1433,9 +1433,8 @@ public class TheBlackGoldMarshalEntity extends BlackGoldPiglinBossBaseEntity imp
 	public boolean isInvulnerableTo(DamageSource damageSource) {
 		if (damageSource.is(DamageTypes.CACTUS)
 				|| damageSource.is(DamageTypes.SWEET_BERRY_BUSH)
-				|| damageSource.is(DamageTypeTags.IS_FIRE)
-				|| damageSource.is(DamageTypes.WITHER)
-				|| damageSource.is(DamageTypes.WITHER_SKULL))
+				|| AttackFind.isFireDamage(damageSource)
+				|| AttackFind.isWitherDamage(damageSource))
 			return true;
 		return super.isInvulnerableTo(damageSource);
 	}

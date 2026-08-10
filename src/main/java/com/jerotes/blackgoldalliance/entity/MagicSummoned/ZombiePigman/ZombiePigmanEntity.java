@@ -1,5 +1,8 @@
 package com.jerotes.blackgoldalliance.entity.MagicSummoned.ZombiePigman;
 
+import com.jerotes.jerotes.entity.MagicSummoned.Zombie.JerotesZombieEntity;
+import com.jerotes.jerotes.goal.JerotesMeleeAttackGoal;
+import com.jerotes.jerotes.init.JerotesDamageTypes;
 import com.jerotes.jerotes.init.JerotesMobEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -38,7 +41,7 @@ import net.minecraft.world.phys.AABB;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class ZombiePigmanEntity extends ZombieEntity implements NeutralMob {
+public class ZombiePigmanEntity extends JerotesZombieEntity implements NeutralMob {
 	private static final UUID SPEED_MODIFIER_ATTACKING_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
 	private static final AttributeModifier SPEED_MODIFIER_ATTACKING = new AttributeModifier(SPEED_MODIFIER_ATTACKING_UUID, "Attacking speed boost", 0.05D, AttributeModifier.Operation.ADDITION);
 	private static final UniformInt FIRST_ANGER_SOUND_DELAY = TimeUtil.rangeOfSeconds(0, 1);
@@ -73,7 +76,36 @@ public class ZombiePigmanEntity extends ZombieEntity implements NeutralMob {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
 		this.targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, true));
 	}
+	class ZombieAttackGoal extends JerotesMeleeAttackGoal {
+		private final JerotesZombieEntity zombie;
+		private int raiseArmTicks;
 
+		public ZombieAttackGoal(JerotesZombieEntity p_26019_, double p_26020_, boolean p_26021_) {
+			super(p_26019_, p_26020_, p_26021_);
+			this.zombie = p_26019_;
+		}
+
+		public void start() {
+			super.start();
+			this.raiseArmTicks = 0;
+		}
+
+		public void stop() {
+			super.stop();
+			this.zombie.setAggressive(false);
+		}
+
+		public void tick() {
+			super.tick();
+			++this.raiseArmTicks;
+			if (this.raiseArmTicks >= 5 && this.getTicksUntilNextAttack() < this.getAttackInterval() / 2) {
+				this.zombie.setAggressive(true);
+			} else {
+				this.zombie.setAggressive(false);
+			}
+
+		}
+	}
 	public static AttributeSupplier.Builder createAttributes() {
 		return Zombie.createAttributes().add(Attributes.SPAWN_REINFORCEMENTS_CHANCE, 0.0D).add(Attributes.MOVEMENT_SPEED, (double)0.23F).add(Attributes.ATTACK_DAMAGE, 5.0D);
 	}
@@ -227,6 +259,21 @@ public class ZombiePigmanEntity extends ZombieEntity implements NeutralMob {
 	protected void randomizeReinforcementsChance() {
 		this.getAttribute(Attributes.SPAWN_REINFORCEMENTS_CHANCE).setBaseValue(0.0D);
 	}
+
+	@Override
+	public void tickDeath() {
+		++this.deathTime;
+		if (this.deathTime >= 20 && !this.level().isClientSide() && !this.isRemoved()) {
+			if (this.getLastDamageSource() != null && !this.getLastDamageSource().is(JerotesDamageTypes.MAGIC_EFFECT)) {
+				this.level().broadcastEntityEvent(this, (byte) 60);
+				this.remove(RemovalReason.KILLED);
+			}
+			else {
+				this.remove(RemovalReason.DISCARDED);
+			}
+		}
+	}
+
 
 	@Nullable
 	public UUID getPersistentAngerTarget() {

@@ -35,7 +35,7 @@ public class BGASoundEvents {
 
     public static final SoundEvent MAGIC_WARPED_BREATH = createSoundEvent("magic_warped_breath");
 
-    public static final SoundEvent MAGIC_CONJURE_SHAMANIC_ZOMBIE_PIGMAN = createSoundEvent("magic_conjure_shamanic_zombie_pigman");
+    public static final SoundEvent MAGIC_CONJURE_SHAMANIC_ZOMBIE_PIGMANS = createSoundEvent("magic_conjure_shamanic_zombie_pigmans");
     public static final SoundEvent MAGIC_RAY_OF_WARPED = createSoundEvent("magic_ray_of_warped");
     public static final SoundEvent MAGIC_WARPED_BOMB = createSoundEvent("magic_warped_bomb");
 

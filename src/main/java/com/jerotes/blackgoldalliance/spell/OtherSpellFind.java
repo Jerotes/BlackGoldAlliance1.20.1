@@ -31,7 +31,7 @@ import java.util.List;
 
 public class OtherSpellFind {
 	//召唤萨满制僵尸猪人$法术
-	public static boolean ConjureShamanicZombiePigman(LivingEntity caster, int countMin, int countMax, int summonDistance) {
+	public static boolean ConjureShamanicZombiePigmans(LivingEntity caster, int countMin, int countMax, int summonDistance) {
 		if (caster.level() instanceof ServerLevel serverLevel) {
 			PlayerTeam teams = (PlayerTeam) caster.getTeam();
 			int count = countMin;
@@ -42,6 +42,10 @@ public class OtherSpellFind {
 				BlockPos summonPos = Main.findSpawnPositionNearFillOnBlock(caster, summonDistance);
 				ZombiePigmanEntity zombiePigmanEntity = BGAEntityType.SHAMANIC_ZOMBIE_PIGMAN.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
 				if (zombiePigmanEntity != null) {
+					Main.conjureAbout(caster, zombiePigmanEntity);
+					zombiePigmanEntity.setMaxLifeTick(120);
+					zombiePigmanEntity.setNotPersistent(true);
+					zombiePigmanEntity.setLifeTick(0);
 					zombiePigmanEntity.setTame(true);
 					zombiePigmanEntity.setOwnerUUID(caster.getUUID());
 					zombiePigmanEntity.setOrderedToSit(false);

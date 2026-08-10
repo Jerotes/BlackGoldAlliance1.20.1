@@ -157,7 +157,6 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:book",
           "functions": [
             {
               "enchantments": [
@@ -165,7 +164,8 @@
               ],
               "function": "minecraft:enchant_randomly"
             }
-          ]
+          ],
+          "name": "minecraft:book"
         }
       ],
       "conditions": [ { "condition": "minecraft:random_chance", "chance": 0.4 } ]

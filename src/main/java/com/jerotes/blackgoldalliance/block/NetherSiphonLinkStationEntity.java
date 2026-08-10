@@ -189,6 +189,12 @@ public class NetherSiphonLinkStationEntity extends RandomizableContainerBlockEnt
 				netherSiphonLinkStationEntity.line = false;
 				netherSiphonLinkStationEntity.setChanged();
 			}
+			if (!netherSiphonLinkStationEntity.line &&
+					(level.getBlockState(new BlockPos(netherSiphonLinkStationEntity.lineX, netherSiphonLinkStationEntity.lineY, netherSiphonLinkStationEntity.lineZ)).is(BGABlocks.NETHER_SIPHON_CORE.get()) && (
+							level.getBlockState(new BlockPos(netherSiphonLinkStationEntity.lineX, netherSiphonLinkStationEntity.lineY, netherSiphonLinkStationEntity.lineZ)).getValue(NetherSiphonCore.TYPE) == 2 || level.getBlockState(new BlockPos(netherSiphonLinkStationEntity.lineX, netherSiphonLinkStationEntity.lineY, netherSiphonLinkStationEntity.lineZ)).getValue(NetherSiphonCore.TYPE) == 3))) {
+				netherSiphonLinkStationEntity.line = true;
+				netherSiphonLinkStationEntity.setChanged();
+			}
 
 			// 去除type=1的可能性（假设type=1是中间状态，直接归零）
 			if (level.getBlockState(blockPos).getValue(NetherSiphonLinkStation.TYPE) == 1) {

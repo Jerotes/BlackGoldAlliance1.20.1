@@ -23,7 +23,7 @@ import java.util.List;
 public class BlackGoldCogCrossbow extends ItemToolBaseCrossbow {
 
 	public BlackGoldCogCrossbow() {
-		super(new Properties().stacksTo(1).durability(3000).fireResistant().rarity(Rarity.UNCOMMON));
+		super(new Properties().stacksTo(1).durability(3000 * 3).fireResistant().rarity(Rarity.UNCOMMON));
 	}
 
 	public boolean useBaseShootArrow() {

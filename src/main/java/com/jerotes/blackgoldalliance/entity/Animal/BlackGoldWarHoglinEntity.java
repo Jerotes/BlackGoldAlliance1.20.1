@@ -1194,9 +1194,9 @@ public class BlackGoldWarHoglinEntity extends AnimalHoglinEntity implements Jero
 			return super.hurt(damageSource, amount);
 		}
 
-		if (damageSource.is(DamageTypeTags.IS_FIRE) || damageSource.is(DamageTypeTags.IS_EXPLOSION))
+		if (AttackFind.isFireDamage(damageSource) || damageSource.is(DamageTypeTags.IS_EXPLOSION))
 			amount /= 3;
-		else if (damageSource.is(DamageTypes.WITHER) || damageSource.is(DamageTypes.WITHER_SKULL))
+		else if (AttackFind.isWitherDamage(damageSource))
 			amount /= 3;
 		boolean bl = super.hurt(damageSource, amount);
 		if (bl) {

@@ -3,9 +3,7 @@ package com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin;
 import com.jerotes.blackgoldalliance.control.ButcherMoveControl;
 import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
 import com.jerotes.blackgoldalliance.goal.*;
-import com.jerotes.blackgoldalliance.init.BGABlocks;
 import com.jerotes.blackgoldalliance.init.BGAItems;
-import com.jerotes.blackgoldalliance.init.BGAMobEffects;
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
@@ -47,7 +45,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -391,7 +388,7 @@ public class BlackGoldButcherEntity extends BlackGoldPiglinEntity implements Eli
 					AttackFind.attackAfter(this, hurt, 1.25f, 1.0f, false, 0f);
 				}
 				else {
-					DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEEDING, this);
+					DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEED, this);
 					AttackFind.attackAfterCustomDamage(this, hurt, damageSource, 0.6f, 1.0f, false, 0f);
 				}
 				if (hurt.getMobType() != MobType.UNDEAD && !EntityFactionFind.isOoze(hurt) && !EntityFactionFind.isPlant(hurt) && !EntityFactionFind.isConstruct(hurt)) {
