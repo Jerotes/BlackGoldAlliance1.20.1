@@ -215,6 +215,7 @@
 
   "item.blackgoldalliance.warped_breath": "诡异吐息",
   "entity.blackgoldalliance.warped_breath": "诡异吐息",
+  "entity.blackgoldalliance.warped_breath_area": "诡异吐息",
   "item.blackgoldalliance.ray_of_warped": "诡异射线",
   "entity.blackgoldalliance.ray_of_warped": "诡异射线",
   "entity.blackgoldalliance.warped_bomb": "诡异炸弹",
@@ -222,9 +223,11 @@
   "spell.blackgoldalliance.conjure_shamanic_zombie_pigmans": "召唤萨满制僵尸猪人",
   "spell.blackgoldalliance.conjure_shamanic_zombie_pigmans.desc": "于施法者周围召唤多个萨满制僵尸猪人，萨满制僵尸猪人会在一定时间后消失",
   "spell.blackgoldalliance.warped_breath": "诡异吐息",
-  "spell.blackgoldalliance.warped_breath.desc": "呼出一道或多道造成中毒伤害以及剧毒的吐息，如果未造成中毒伤害则变为魔法伤害",
+  "spell.blackgoldalliance.warped_breath.desc": "呼出造成毒素伤害以及剧毒的吐息，如果未造成毒素伤害则变为魔法伤害",
+  "spell.blackgoldalliance.warped_breath.subcategory_0": "锥形吐息",
+  "spell.blackgoldalliance.warped_breath.subcategory_1": "射弹吐息",
   "spell.blackgoldalliance.ray_of_warped": "诡异射线",
-  "spell.blackgoldalliance.ray_of_warped.desc": "释放一道造成中毒伤害以及剧毒的射线，如果未造成中毒伤害则变为魔法伤害",
+  "spell.blackgoldalliance.ray_of_warped.desc": "释放一道造成毒素伤害以及剧毒的射线，如果未造成毒素伤害则变为魔法伤害",
   "spell.blackgoldalliance.warped_bomb": "诡异炸弹",
   "spell.blackgoldalliance.warped_bomb.desc": "环绕目标召唤多个诡异炸弹",
 

@@ -11,7 +11,6 @@ import com.jerotes.jerotes.goal.*;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.item.Interface.ItemBaseGiantBeastArmor;
 import com.jerotes.jerotes.item.Interface.ItemBeastArmor;
-import com.jerotes.jerotes.item.ItemGiantBeastArmor;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
@@ -39,7 +38,6 @@ import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -324,7 +322,7 @@ public class BlackGoldWarHoglinEntity extends AnimalHoglinEntity implements Jero
 			Objects.requireNonNull(this.getAttribute(Attributes.ARMOR)).removeModifier(ARMOR_MODIFIER_UUID);
 			Objects.requireNonNull(this.getAttribute(Attributes.ARMOR_TOUGHNESS)).removeModifier(ARMOR_TOUGHNESS_MODIFIER_UUID);
 			Objects.requireNonNull(this.getAttribute(Attributes.KNOCKBACK_RESISTANCE)).removeModifier(KNOCKBACK_RESISTANCE_MODIFIER_UUID);
-			if (itemStack.getItem() instanceof ItemGiantBeastArmor armor && (n = armor.getProtection()) != 0) {
+			if (itemStack.getItem() instanceof ItemBeastArmor armor && (n = armor.getProtection()) != 0) {
 				Objects.requireNonNull(this.getAttribute(Attributes.ARMOR)).addTransientModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Giant Beast Armor bonus", n, AttributeModifier.Operation.ADDITION));
 			}
 			if (itemStack.getItem() instanceof ItemBeastArmor armor && (n2 = armor.getToughness()) != 0) {

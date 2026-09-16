@@ -2,15 +2,24 @@ package com.jerotes.blackgoldalliance.init;
 
 import com.jerotes.blackgoldalliance.BGA;
 import com.jerotes.blackgoldalliance.entity.Animal.*;
-import com.jerotes.blackgoldalliance.entity.Boss.*;
-import com.jerotes.blackgoldalliance.entity.MagicSummoned.ZombiePigman.*;
-import com.jerotes.blackgoldalliance.entity.Other.*;
+import com.jerotes.blackgoldalliance.entity.Boss.PiglinRaidNetherPortalEntity;
+import com.jerotes.blackgoldalliance.entity.Boss.TheBlackGoldMarshalEntity;
+import com.jerotes.blackgoldalliance.entity.MagicSummoned.ZombiePigman.ZombiePigmanEntity;
+import com.jerotes.blackgoldalliance.entity.Other.BreathAreaSpell.WarpedBreathAreaEntity;
+import com.jerotes.blackgoldalliance.entity.Other.NetherSiphonCoreForceEntity;
+import com.jerotes.blackgoldalliance.entity.Other.PortalPointEntity;
+import com.jerotes.blackgoldalliance.entity.Other.WarpedBombEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.*;
-import com.jerotes.blackgoldalliance.entity.Piglin.*;
-import com.jerotes.blackgoldalliance.entity.Shoot.Arrow.*;
-import com.jerotes.blackgoldalliance.entity.Shoot.Magic.Breath.*;
-import com.jerotes.blackgoldalliance.entity.Shoot.Magic.Ray.*;
-import com.jerotes.blackgoldalliance.entity.WitherSkeleton.*;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderBruteEntity;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderEntity;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderHunterEntity;
+import com.jerotes.blackgoldalliance.entity.Piglin.PiglinRaiderWarriorEntity;
+import com.jerotes.blackgoldalliance.entity.Shoot.Arrow.BlackGoldSpectralArrowEntity;
+import com.jerotes.blackgoldalliance.entity.Shoot.Magic.Breath.WarpedBreathEntity;
+import com.jerotes.blackgoldalliance.entity.Shoot.Magic.Ray.RayOfWarpedEntity;
+import com.jerotes.blackgoldalliance.entity.WitherSkeleton.OathConstructSpiderJockeyEntity;
+import com.jerotes.blackgoldalliance.entity.WitherSkeleton.OathWitherSkeletonEntity;
+import com.jerotes.blackgoldalliance.entity.WitherSkeleton.OathWitherSquireEntity;
 import com.jerotes.blackgoldalliance.util.SpawnRules;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -130,6 +139,10 @@ public class BGAEntityType {
 	public static final RegistryObject<EntityType<WarpedBombEntity>> WARPED_BOMB = register("warped_bomb",
 			EntityType.Builder.<WarpedBombEntity>of(WarpedBombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(4)
 					.sized(0.6f, 0.6f));
+
+	public static final RegistryObject<EntityType<WarpedBreathAreaEntity>> WARPED_BREATH_AREA = register("warped_breath_area",
+			EntityType.Builder.<WarpedBreathAreaEntity>of(WarpedBreathAreaEntity::new, MobCategory.MISC).fireImmune().clientTrackingRange(10).updateInterval(Integer.MAX_VALUE)
+					.sized(0.5F, 0.5F));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));

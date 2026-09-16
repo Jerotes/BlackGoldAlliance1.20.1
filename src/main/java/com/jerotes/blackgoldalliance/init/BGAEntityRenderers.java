@@ -1,6 +1,7 @@
 package com.jerotes.blackgoldalliance.init;
 
 import com.jerotes.blackgoldalliance.client.renderer.*;
+import com.jerotes.jerotes.client.renderer.BreathAreaRenderer;
 import com.jerotes.jerotes.client.renderer.RayRenderer;
 import com.jerotes.jerotes.client.renderer.ShootRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -52,5 +53,7 @@ public class BGAEntityRenderers {
         event.registerEntityRenderer(BGAEntityType.WARPED_BREATH.get(), ShootRenderer::new);
         event.registerEntityRenderer(BGAEntityType.RAY_OF_WARPED.get(), RayRenderer::new);
         event.registerEntityRenderer(BGAEntityType.WARPED_BOMB.get(), WarpedBombRenderer::new);
+
+        event.registerEntityRenderer(BGAEntityType.WARPED_BREATH_AREA.get(), BreathAreaRenderer::new);
     }
 }

@@ -19,7 +19,7 @@ public class BlackGoldWarhammer extends ItemToolBaseTwoHandedHammer {
 			}
 
 			public float getAttackDamageBonus() {
-				return 20f;
+				return 22f;
 			}
 
 			public int getLevel() {
@@ -31,7 +31,7 @@ public class BlackGoldWarhammer extends ItemToolBaseTwoHandedHammer {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
+				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
 			}
 		}, -1, 0.65f - 4f, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
 	}

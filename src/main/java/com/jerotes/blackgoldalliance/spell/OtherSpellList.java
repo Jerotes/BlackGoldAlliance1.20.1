@@ -21,7 +21,7 @@ public class OtherSpellList {
 				List<ZombiePigmanEntity> list = getCaster().level().getEntitiesOfClass(ZombiePigmanEntity.class, getCaster().getBoundingBox().inflate(128, 128, 128));
 				list.removeIf(summon -> summon.getOwner() != getCaster());
 				list.removeIf(summon -> !summon.isNotPersistent());
-				return OtherSpellFind.ConjureShamanicZombiePigmans(getCaster(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 16);
+				return OtherSpellFind.ConjureShamanicZombiePigmans(getCaster(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 5 + (getSpellLevel() - 3) * 2 - list.size(), 9);
 			}
 			public String getSpellModId() {
 				return BGA.MODID;
@@ -30,11 +30,11 @@ public class OtherSpellList {
 				return 4;
 			}
 			public float getSpellDistanceBase() {
-				return 16;
+				return 9;
 			}
 			public boolean canUse() {
 				if (getCaster() != null) {
-					List<ZombiePigmanEntity> list = getCaster().level().getEntitiesOfClass(ZombiePigmanEntity.class, getCaster().getBoundingBox().inflate(32.0, 32.0, 32.0));
+					List<ZombiePigmanEntity> list = getCaster().level().getEntitiesOfClass(ZombiePigmanEntity.class, getCaster().getBoundingBox().inflate(128, 128, 128));
 					list.removeIf(summon -> summon.getOwner() != getCaster());
 					list.removeIf(summon -> !summon.isNotPersistent());
 					return super.canUse() && list.size() < 5 + (getSpellLevel() - 3) * 2;
@@ -50,7 +50,7 @@ public class OtherSpellList {
 	public static MagicSpell WarpedBreath(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SHOOT, MagicType.MAIN, "warped_breath", BGAParticleTypes.WARPED_BREATH_DISPLAY.get(), BGASoundEvents.MAGIC_WARPED_BREATH){
 			public boolean spellFindUse() {
-				return OtherSpellFind.WarpedBreath(getCaster(), getTarget(), getSpellLevel(), getSpellLevel() * 6, getSpellLevel() - 1, getSpellAccuracy(), getSpellLevel() + 1, 5, getCaster() instanceof Player);
+				return OtherSpellFind.WarpedBreath(getCaster(), getTarget(), getSpellLevel(), 6 + (getSpellLevel() - 1) * 3, (int)Math.ceil((getSpellLevel()) / 2.0), getSpellAccuracy(), getSpellLevel() + 1, 5, getCaster() instanceof Player, getSubcategory());
 			}
 			public String getSpellModId() {
 				return BGA.MODID;
@@ -59,15 +59,26 @@ public class OtherSpellList {
 				return 3;
 			}
 			public SpellSchool getSpellSchool() {
-				return SpellSchool.CONJURATION;
+				return SpellSchool.EVOCATION;
 			}
+			public float getSpellDistanceBase() {
+				return 18.0f;
+			}
+			//
+			public int getCustomSubcategoryReachAdd() {
+				return 1;
+			}
+			public int usedByNonPlayerFindSubcategory(LivingEntity livingEntity) {
+				return 0;
+			}
+			//
 		};
 	}
 	//诡异射线
 	public static MagicSpell RayofWarped(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SHOOT, MagicType.MAIN, "ray_of_warped", BGAParticleTypes.RAY_OF_WARPED_DISPLAY.get(), BGASoundEvents.MAGIC_RAY_OF_WARPED){
 			public boolean spellFindUse() {
-				return OtherSpellFind.RayofWarped(getCaster(), getTarget(), getSpellLevel(), getSpellLevel() * 4, getSpellLevel(), getSpellAccuracy(), 1, 5, getCaster() instanceof Player);
+				return OtherSpellFind.RayofWarped(getCaster(), getTarget(), getSpellLevel(), 6 + (getSpellLevel() - 1) * 3, (int)Math.ceil((getSpellLevel()) / 2.0), getSpellAccuracy(), 1, 5, getCaster() instanceof Player);
 			}
 			public String getSpellModId() {
 				return BGA.MODID;

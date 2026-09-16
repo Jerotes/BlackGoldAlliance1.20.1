@@ -19,7 +19,7 @@ public class BlackGoldBattleaxe extends ItemToolBaseTwoHandedAxe {
 			}
 
 			public float getAttackDamageBonus() {
-				return 18.5f;
+				return 20.5f;
 			}
 
 			public int getLevel() {
@@ -31,7 +31,7 @@ public class BlackGoldBattleaxe extends ItemToolBaseTwoHandedAxe {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
+				return Ingredient.of(new ItemStack(Items.NETHERITE_INGOT));
 			}
 		}, -1, 0.7f - 4f, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
 	}

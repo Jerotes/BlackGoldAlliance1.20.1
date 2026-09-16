@@ -2,6 +2,7 @@ package com.jerotes.blackgoldalliance.spell;
 
 import com.jerotes.blackgoldalliance.entity.Boss.PiglinRaidNetherPortalEntity;
 import com.jerotes.blackgoldalliance.entity.MagicSummoned.ZombiePigman.ZombiePigmanEntity;
+import com.jerotes.blackgoldalliance.entity.Other.BreathAreaSpell.WarpedBreathAreaEntity;
 import com.jerotes.blackgoldalliance.entity.Other.WarpedBombEntity;
 import com.jerotes.blackgoldalliance.entity.Piglin.BlackGoldPiglin.BlackGoldPiglinEntity;
 import com.jerotes.blackgoldalliance.entity.Shoot.Magic.Breath.WarpedBreathEntity;
@@ -43,7 +44,7 @@ public class OtherSpellFind {
 				ZombiePigmanEntity zombiePigmanEntity = BGAEntityType.SHAMANIC_ZOMBIE_PIGMAN.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
 				if (zombiePigmanEntity != null) {
 					Main.conjureAbout(caster, zombiePigmanEntity);
-					zombiePigmanEntity.setMaxLifeTick(120);
+					zombiePigmanEntity.setMaxLifeTick(20 * 30);
 					zombiePigmanEntity.setNotPersistent(true);
 					zombiePigmanEntity.setLifeTick(0);
 					zombiePigmanEntity.setTame(true);
@@ -68,19 +69,42 @@ public class OtherSpellFind {
 	}
 
 	//诡异吐息$法术
-	public static boolean WarpedBreath(LivingEntity caster, Entity target, int spellLevelDamage, int spellLevelMainEffectTime, int spellLevelMainEffectLevel, float spellLevelAccuracy, int count, float distance, boolean isPlayer) {
+	public static boolean WarpedBreath(LivingEntity caster, Entity target, int spellLevelDamage, int spellLevelMainEffectTime, int spellLevelMainEffectLevel, float spellLevelAccuracy, int count, float distance, boolean isPlayer, int subcategory) {
 		if (caster.level() instanceof ServerLevel serverLevel) {
-			WarpedBreathEntity breath;
-			for (int i = 0; i < count; ++i) {
+			if (subcategory == 0) {
 				if (!isPlayer && target != caster && caster instanceof Mob mob && target != null) {
 					mob.getLookControl().setLookAt(target, 360.0f, 360.0f);
 					mob.lookAt(target, 360.0f, 360.0f);
 				}
-				breath = new WarpedBreathEntity(spellLevelDamage, spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, caster, caster.getLookAngle().x, caster.getLookAngle().y, caster.getLookAngle().z);
-				breath.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
-				breath.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
-				breath.setOwner(caster);
-				serverLevel.addFreshEntity(breath);
+				//目标位置
+				Vec3 look = caster.getLookAngle().normalize();
+				Vec3 targetPos = caster.position()
+						.add(0, caster.getBbHeight() * 0.25 + 2 / 16f, 0)
+						.add(look.scale(2.25));
+
+				WarpedBreathAreaEntity cloud = new WarpedBreathAreaEntity(serverLevel, caster);
+				cloud.setSpellLevelDamage(spellLevelDamage);
+				cloud.setPos(targetPos.x, targetPos.y, targetPos.z);
+				cloud.setYRot(caster.getYRot());
+				cloud.setXRot(caster.getXRot());
+				cloud.setOwner(caster);
+				cloud.setTarget(caster);
+				serverLevel.addFreshEntity(cloud);
+				serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
+			}
+			if (subcategory == 1) {
+				WarpedBreathEntity breath;
+				for (int i = 0; i < count; ++i) {
+					if (!isPlayer && target != caster && caster instanceof Mob mob && target != null) {
+						mob.getLookControl().setLookAt(target, 360.0f, 360.0f);
+						mob.lookAt(target, 360.0f, 360.0f);
+					}
+					breath = new WarpedBreathEntity(spellLevelDamage, spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, caster, caster.getLookAngle().x, caster.getLookAngle().y, caster.getLookAngle().z);
+					breath.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+					breath.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
+					breath.setOwner(caster);
+					serverLevel.addFreshEntity(breath);
+				}
 			}
 		}
 		return true;

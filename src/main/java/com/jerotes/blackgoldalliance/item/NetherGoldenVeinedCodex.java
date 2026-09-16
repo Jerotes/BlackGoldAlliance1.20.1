@@ -17,8 +17,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
+
+import java.util.List;
 
 public class NetherGoldenVeinedCodex extends Item {
 	public NetherGoldenVeinedCodex() {
@@ -57,5 +60,11 @@ public class NetherGoldenVeinedCodex extends Item {
 			player.awardStat(Stats.ITEM_USED.get(this));
 			return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
 		}
+	}
+
+	@Override
+	public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
+		super.appendHoverText(itemStack, level, list, tooltipFlag);
+		list.add(Component.translatable("item.jerotes.unviewed").withStyle(ChatFormatting.DARK_GRAY));
 	}
 }

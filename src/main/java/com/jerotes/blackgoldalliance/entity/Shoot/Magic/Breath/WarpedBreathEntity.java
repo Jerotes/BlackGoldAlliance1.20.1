@@ -6,12 +6,14 @@ import com.jerotes.blackgoldalliance.init.BGAParticleTypes;
 import com.jerotes.jerotes.entity.Shoot.Magic.Breath.BaseBreathEntity;
 import com.jerotes.jerotes.init.JerotesDamageTypes;
 import com.jerotes.jerotes.init.JerotesMobEffects;
+import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.AttackFind;
+import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.Main;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -54,17 +56,26 @@ public class WarpedBreathEntity extends BaseBreathEntity {
         }
         Entity entity = entityHitResult.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
-            DamageSource damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.POISON, this, this.getOwner());
-            boolean bl = livingEntity.hurt(damageSource,
-                    Main.rollDice(spellLevelDamage, Main.randomReach(RandomSource.create(), 1, 6), this.random) + 6
-            );
-            if (bl) {
-                livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.DEADLY_POISON.get(), 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.CORROSION, this, this.getOwner());
+            DamageSource damageSource2 = AttackFind.findDamageType(this, DamageTypes.INDIRECT_MAGIC, this, this.getOwner());
+            boolean bl = false;
+            boolean bl2 = false;
+            if (!EntityAndItemFind.savingSpellThrow(livingEntity)) {
+                bl = livingEntity.hurt(damageSource,
+                        Main.rollDice(spellLevelDamage * 2, 6, this.random)
+                );
+                if (bl) {
+                    livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.DEADLY_POISON.get(), 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
+                }
+                else {
+                    bl2 = livingEntity.hurt(damageSource2, Main.rollDice(getSpellLevel() * 2, 6, this.random));
+                }
             }
             else {
-                livingEntity.hurt(this.damageSources().indirectMagic(this, this.getOwner()),
-                        Main.rollDice(spellLevelDamage, Main.randomReach(RandomSource.create(), 1, 6), this.random) + 6
-                );
+                bl2 = livingEntity.hurt(damageSource, Main.rollDice(spellLevelDamage * 2, 6, this.random) / 2);
+            }
+            if (bl || bl2) {
+                this.playSound(JerotesSoundEvents.SPELL, 1.0f, 1.0f);
             }
         }
     }
@@ -101,6 +112,10 @@ public class WarpedBreathEntity extends BaseBreathEntity {
     @Override
     public int getMaxLife() {
         return 30;
+    }
+    @Override
+    public float getMaxReach() {
+        return 18.0f;
     }
 
     @Override

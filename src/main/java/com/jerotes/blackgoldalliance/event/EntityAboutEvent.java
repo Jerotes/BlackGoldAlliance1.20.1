@@ -57,6 +57,8 @@ public class EntityAboutEvent {
 	@SubscribeEvent
 	public static void DetroyBlock(LivingDestroyBlockEvent event) {
 		LivingEntity self = event.getEntity();
+		if (self == null)
+			return;
 		if (self.hasEffect(BGAMobEffects.PIGLIN_DETERRENT.get())) {
 			AABB area = new AABB(event.getPos()).inflate(10);
 			List<NetherSiphonCoreForceEntity> list = self.level().getEntitiesOfClass(NetherSiphonCoreForceEntity.class, area);
